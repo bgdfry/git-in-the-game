@@ -2,7 +2,7 @@
   "name": "git-in-the-game",
   "version": "1.0.0",
   "description": "App used to track various Github activities. Uses Electron and React.",
-  "main": "src/app.js",
+  "main": "src/main.js",
   "scripts": {
     "test": "mocha tests/test.js",
     "start": "electron ."
