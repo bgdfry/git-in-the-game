@@ -20,7 +20,12 @@
   "devDependencies": {
     "babel-preset-es2016-node5": "^1.1.2",
     "babel-preset-react": "^6.16.0",
-    "electron-prebuilt-compile": "^1.4.12"
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "chai-jquery": "^2.0.0",
+    "electron-prebuilt-compile": "^1.4.12",
+    "mocha": "^3.2.0",
+    "spectron": "^3.4.1"
   },
   "dependencies": {
     "react": "^15.4.1",
