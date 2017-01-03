@@ -1,4 +1,5 @@
 import {app, BrowserWindow} from 'electron';
+import menubar from 'menubar';
 
 let mainWindow = null;
 
