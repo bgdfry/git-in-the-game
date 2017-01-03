@@ -1,4 +1,5 @@
 import React from 'react';
+import SignIn from './SignIn';
 
 export default class App extends React.Component {
   constructor() {
@@ -9,7 +10,7 @@ export default class App extends React.Component {
 render(){
   return(
       <div>
-        <h1>Connected</h1>
+        <SignIn />
       </div>
     );
   }
