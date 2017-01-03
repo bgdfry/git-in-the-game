@@ -1,5 +1,4 @@
 import React from 'react';
-import firebase, { provider } from '../../../firebase';
 
 export default function() {
   return (
