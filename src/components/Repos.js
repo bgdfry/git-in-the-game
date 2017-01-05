@@ -15,12 +15,14 @@ export default class Repos extends React.Component {
   }
   
   renderRepoNames() {
-    this.state.repositiories ? 
-    this.state.repositiories.map((repo) => {
-      return <a href={repo.link}><h3>{repo.name}</h3></a>
-    })
-    :
-    <h2>No Repos</h2>
+    return (
+      this.state.repositiories ? 
+      this.state.repositiories.map((repo) => {
+        return <a href={repo.link}><h3>{repo.name}</h3></a>
+      })
+      :
+      <h2>No Repos</h2>
+    )
   }
 
   render(){
