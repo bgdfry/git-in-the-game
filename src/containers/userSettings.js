@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setStartDate } from '../actions/index';
+import { setStartDate, submitUserName } from '../actions/index';
 
 const mapStateToProps = (state) => {
   return { modStartDates: state.modStartDates };
@@ -7,6 +7,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    submitUserName: (username) => {
+      dispatch(submitUserName(username));
+    },
+
     setStartDate: (mod, date) => {
        dispatch(setStartDate(mod, date));
      }
