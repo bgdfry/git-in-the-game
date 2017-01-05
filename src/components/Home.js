@@ -5,15 +5,10 @@ import CircularProgressbar from 'react-circular-progressbar';
 export default class Home extends React.Component {
   constructor() {
     super();
-}
+  }
 
-goToRepos() {
-  this.context.router.push('/repos');
-}
-
-
-render(){
-  return(
+  render(){
+    return(
       <div className='home-container'>
         <section className='home'>
           <section className='current-mod-stats'>
@@ -26,8 +21,6 @@ render(){
               <h1>134</h1>
             </div>
           </section>
-
-
           <div className='stat'>
             <h3>You VS Last Mod:</h3>
             <CircularProgressbar

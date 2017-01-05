@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-
 import auth from './reducers/auth';
 import reducers from './reducers/index';
 import Home from './components/Home';
