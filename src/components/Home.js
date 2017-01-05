@@ -9,8 +9,8 @@ export default class Home extends React.Component {
 
   render(){
     return(
-      <div className='home-container'>
-        <section className='home'>
+      <div className='main-container'>
+        <section className='main'>
           <section className='current-mod-stats'>
             <div className='stat'>
               <h3>Mod 1 Repost:</h3>

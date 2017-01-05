@@ -1,18 +1,3 @@
-.home-container {
-  display: flex;
-  flex-direction: row;
-  height: $screen-size-height-small;
-  width: 100%;
-}
-
-.home {
-  @include screen-width-small(260px);
-  @include center-items;
-  flex-direction: column;
-  border-radius: 5px;
-  background: white;
-  z-index: 1;
-}
 
 .current-mod-stats {
   @include center-items;
@@ -42,7 +27,7 @@
 }
 
 .CircularProgressbar .CircularProgressbar-path {
-  stroke: #82C13C;
+  stroke: $color-winning;
   stroke-linecap: round;
   transition: stroke-dashoffset 0.5s ease 0s;
 }

@@ -72,9 +72,28 @@ input {
   border: none;
   padding: 0px 3px; }
 
+a {
+  text-decoration: none; }
+
 .app {
   height: 300px;
   display: flex; }
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+  width: 100%; }
+
+.main {
+  width: 560px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  background: white;
+  z-index: 1; }
 
 .back {
   display: flex;
@@ -99,22 +118,6 @@ input {
 
 .back-left:hover img {
   margin-left: -3px; }
-
-.home-container {
-  display: flex;
-  flex-direction: row;
-  height: 300px;
-  width: 100%; }
-
-.home {
-  width: 260px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border-radius: 5px;
-  background: white;
-  z-index: 1; }
 
 .current-mod-stats {
   display: flex;
@@ -157,6 +160,14 @@ input {
   font-size: 20px;
   dominant-baseline: middle;
   text-anchor: middle; }
+
+.all-repos {
+  max-height: 500px;
+  width: 200px; }
+  .all-repos ul {
+    overflow-y: scroll; }
+  .all-repos li {
+    margin: 10px 0px; }
 
 .mod-input {
   display: flex;
