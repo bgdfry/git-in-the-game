@@ -15,7 +15,7 @@ class Login extends React.Component {
       <div className="login-container">
         <h1>Login Screen!</h1>
         <button className="login-button" onClick={()=> this.logIn()}>
-          Log in to GitHub
+          Fake login button
         </button>
         { this.props.auth ? <span>Logged in!</span> : null }
       </div>
