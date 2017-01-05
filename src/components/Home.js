@@ -1,9 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router';
 import CircularProgressbar from 'react-circular-progressbar';
 
 export default class Home extends React.Component {
   constructor() {
     super();
+}
+
+goToRepos() {
+  this.context.router.push('/repos');
 }
 
 
@@ -34,9 +39,10 @@ render(){
             <h4>Followers</h4>
           </div>
         </section>
-        <section className='back back-right'>
+        <Link to='/repos'
+          className='back back-right'>
           <img src='./imgs/right-arrow.svg' />
-        </section>
+        </Link>
       </div>
     );
   }
