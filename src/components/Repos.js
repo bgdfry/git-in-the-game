@@ -10,7 +10,7 @@ render(){
   return(
       <section className='home-container'>
         <Link to={'/'} className='back back-left'>
-          <img src='../imgs/left-arrow.svg' />
+          <img src='./imgs/left-arrow.svg' />
         </Link>
 
         <section className='home'>
