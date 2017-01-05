@@ -7,11 +7,6 @@ export default class Home extends React.Component {
     super();
 }
 
-goToRepos() {
-  this.context.router.push('/repos');
-}
-
-
 render(){
   return(
       <div className='home-container'>
@@ -26,8 +21,6 @@ render(){
               <h1>134</h1>
             </div>
           </section>
-
-
           <div className='stat'>
             <h3>You VS Last Mod:</h3>
             <CircularProgressbar
