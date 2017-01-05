@@ -1,21 +1,21 @@
 h1 {
-  font-family: roboto;
+  font-family: "Roboto", sans-serif;
   font-size: 24px;
-  color: roboto; }
+  color: #707070; }
 
 h2 {
-  font-family: roboto;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
-  color: roboto; }
+  color: #707070; }
 
 h3 {
-  font-family: roboto;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
-  color: roboto; }
+  color: #707070; }
 
 h4 {
-  font-family: roboto;
-  font-size: 24px;
-  color: roboto; }
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+  color: #707070; }
 
 /*# sourceMappingURL=variables.css.map */

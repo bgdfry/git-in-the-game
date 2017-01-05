@@ -3,13 +3,32 @@
 $color-main: #707070;
 $color-main-light: lighten($color-main, 20);
 $color-main-dark: darken($color-main, 20);
+$color-light: #D8D8D8;
+
 
 $color-winning: #82C13C;
 $color-losing: #D0011B;
 
 // FONT
 
-$font-main: roboto;
+$font-main: 'Roboto', sans-serif;
+
+
+// SCREEN
+
+$screen-size-height-small: 300px;
+$screen-size-width-small: 300px;
+@mixin screen-width-small($width) {
+  width: $width;
+}
+
+// FLEX
+
+@mixin center-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 // HEADINGS
@@ -17,23 +36,23 @@ $font-main: roboto;
 h1 {
   font-family: $font-main;
   font-size: 24px;
-  color: $font-main;
+  color: $color-main;
 }
 
 h2 {
   font-family: $font-main;
   font-size: 18px;
-  color: $font-main;  
+  color: $color-main;  
 }
 
 h3 {
   font-family: $font-main;
   font-size: 14px;
-  color: $font-main;  
+  color: $color-main;  
 }
 
 h4 {
   font-family: $font-main;
-  font-size: 24px;
-  color: $font-main;  
+  font-size: 10px;
+  color: $color-main;  
 }

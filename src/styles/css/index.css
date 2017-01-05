@@ -1,23 +1,3 @@
-h1 {
-  font-family: roboto;
-  font-size: 24px;
-  color: roboto; }
-
-h2 {
-  font-family: roboto;
-  font-size: 18px;
-  color: roboto; }
-
-h3 {
-  font-family: roboto;
-  font-size: 14px;
-  color: roboto; }
-
-h4 {
-  font-family: roboto;
-  font-size: 24px;
-  color: roboto; }
-
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -66,5 +46,81 @@ table {
   border-spacing: 0; }
 
 /*# sourceMappingURL=reset.css.map */
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  color: #707070; }
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: #707070; }
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: #707070; }
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+  color: #707070; }
+
+.app {
+  height: 300px;
+  display: flex; }
+
+.home-container {
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+  width: 100%; }
+
+.home {
+  width: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  background: white;
+  z-index: 1; }
+
+.back {
+  background: #D8D8D8;
+  height: 300px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -10px; }
+
+.current-mod-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.current-mod-repos, .current-mod-commits, .current-mod-comparison {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  flex-direction: column;
+  text-align: center; }
+  .current-mod-repos h1, .current-mod-repos h3, .current-mod-commits h1, .current-mod-commits h3, .current-mod-comparison h1, .current-mod-comparison h3 {
+    margin: 3px; }
+
+.follower-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 10px; }
+  .follower-count h3, .follower-count h4 {
+    color: #D8D8D8;
+    margin: 2px; }
 
 /*# sourceMappingURL=index.css.map */
