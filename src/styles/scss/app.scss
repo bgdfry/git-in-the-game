@@ -2,3 +2,34 @@
   height: 300px;
   display: flex;
 }
+
+.back {
+  @include center-items;
+  @include screen-width-small(60px);
+  background: $color-light;
+  height: $screen-size-height-small;
+  img {
+    
+  }
+}
+
+.back-right {
+  margin-left: -10px;
+}
+
+.back-left {
+  margin-right: -10px;
+}
+
+.back:hover {
+  background: $color-main-light;
+  transition: 0.15s;
+}
+
+.back-right:hover {
+  margin-left: -13px;  
+}
+
+.back-left:hover {
+  margin-right: -13px;  
+}

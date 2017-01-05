@@ -14,14 +14,6 @@
   z-index: 1;
 }
 
-.back {
-  background: $color-light;
-  height: $screen-size-height-small;
-  @include screen-width-small(60px);
-  @include center-items;
-  margin-left: -10px;
-}
-
 .current-mod-stats {
   @include center-items;
 }

@@ -31,7 +31,7 @@ render(){
             <h4>Followers</h4>
           </div>
         </section>
-        <section className='back'> ▷ </section>
+        <section className='back back-right'> ▷ </section>
       </div>
     );
   }
