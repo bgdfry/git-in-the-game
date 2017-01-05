@@ -1,4 +1,4 @@
-const username = (state = {}, action) => {
+const username = (state = '', action) => {
   const { type, username } = action;
   switch (type) {
     case 'USERNAME':

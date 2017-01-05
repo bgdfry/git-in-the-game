@@ -14,7 +14,7 @@ class Home extends React.Component {
         <Link to={'/'} className='back back-left'>
           <img src='./imgs/left-arrow.svg' />
         </Link>
-        <h2>Hello { this.props.username }!</h2>
+        { this.props.username ? <h2>Hello {this.props.username}!</h2> : <h2>Please enter your github name on the previous screen</h2> }
         <section className='home'>
           <section className='current-mod-stats'>
             <div className='stat'>
