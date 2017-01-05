@@ -9,5 +9,5 @@ mb.on('ready', () => {
 });
 
 mb.on('after-create-window', () => {
-  mb.window.loadURL(`file://${__dirname}/renderer/index.html`);
+  mb.window.loadURL(`file://${__dirname}/src/index.html`);
 });

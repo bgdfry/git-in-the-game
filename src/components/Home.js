@@ -32,7 +32,7 @@ render(){
           </div>
         </section>
         <section className='back back-right'>
-          <img src='../imgs/right-arrow.svg' />
+          <img src='./imgs/right-arrow.svg' />
         </section>
       </div>
     );

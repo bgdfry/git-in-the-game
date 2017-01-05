@@ -12,7 +12,6 @@ render(){
   return(
       <div className='app'>
         <Home />
-
       </div>
     );
   }
