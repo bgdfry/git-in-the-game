@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import auth from './auth';
+import username from './username';
 import modStartDates from './modStartDates';
 
 export const rootReducer = combineReducers({
-  auth,
-  modStartDates
+  modStartDates,
+  username
 });
 
 export default rootReducer;

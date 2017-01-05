@@ -12,7 +12,7 @@ export default class Repos extends React.Component {
         { name: 'jacked', link: 'https://www.youtube.com/watch?v=xfr64zoBTAQ'},
         { name: 'social-influence', link: 'https://www.youtube.com/watch?v=xfr64zoBTAQ'}
       ]
-    }
+    };
   }
 
   renderRepoNames() {
@@ -42,6 +42,10 @@ export default class Repos extends React.Component {
 
           </section>
         </section>
+        <Link to='/username-input'
+          className='back back-right'>
+        <img src='./imgs/right-arrow.svg' />
+        </Link>
       </section>
     );
   }
