@@ -1,0 +1,153 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*# sourceMappingURL=reset.css.map */
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  color: #707070; }
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: #707070; }
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: #707070; }
+
+h4 {
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+  color: #707070; }
+
+input {
+  background: #D8D8D8;
+  border-radius: 5px;
+  border: none;
+  padding: 0px 3px; }
+
+.app {
+  height: 300px;
+  display: flex; }
+
+.back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  background: #D8D8D8;
+  height: 300px; }
+
+.back-right {
+  margin-left: -10px; }
+
+.back-left {
+  margin-right: -10px; }
+
+.back:hover {
+  background: #a3a3a3;
+  transition: 0.15s; }
+
+.back-right:hover img {
+  margin-right: -3px; }
+
+.back-left:hover img {
+  margin-left: -3px; }
+
+.home-container {
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+  width: 100%; }
+
+.home {
+  width: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  background: white;
+  z-index: 1; }
+
+.current-mod-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.stat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  flex-direction: column;
+  text-align: center; }
+  .stat h1, .stat h3 {
+    margin: 3px; }
+
+.follower-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 10px; }
+  .follower-count h3, .follower-count h4 {
+    color: #D8D8D8;
+    margin: 2px; }
+
+.mod-input {
+  display: flex;
+  margin: 20px; }
+  .mod-input label {
+    padding-right: 5px; }
+
+/*# sourceMappingURL=index.css.map */
