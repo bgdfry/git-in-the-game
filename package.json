@@ -2,7 +2,7 @@
   "name": "git-in-the-game",
   "version": "1.0.0",
   "description": "App used to track various Github activities. Uses Electron and React.",
-  "main": "src/main.js",
+  "main": "main.js",
   "scripts": {
     "test": "mocha tests/test.js",
     "start": "electron ."
@@ -30,8 +30,17 @@
     "spectron": "^3.4.1"
   },
   "dependencies": {
+<<<<<<< HEAD
     "passport-github2": "^0.1.10",
+=======
+    "axios": "^0.15.3",
+    "menubar": "^5.2.0",
+>>>>>>> a4087d1f347676771d20498351f17dedc3099b0c
     "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react-dom": "^15.4.1",
+    "react-redux": "^5.0.1",
+    "react-router": "^3.0.0",
+    "react-router-redux": "^4.0.7",
+    "redux": "^3.6.0"
   }
 }
