@@ -24,7 +24,7 @@ class Repos extends React.Component {
     return (
       this.state.repositiories ? 
       this.state.repositiories.map((repo, i) => {
-        return <li><a href={repo.link} key={i}><h3>{repo.name}</h3></a></li>
+        return <li key={i}><Link to={`/repos/${repo.name}`}><h3>{repo.name}</h3></Link></li>
       })
       :
       <h2>No Repos</h2>

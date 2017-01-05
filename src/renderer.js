@@ -11,6 +11,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import App from './components/App';
 import Repos from './components/Repos';
+import Repo from './components/Repo';
 
 const store = createStore(rootReducer);
 
@@ -20,6 +21,7 @@ ReactDOM.render(
       <Route path='/' component={App}>
         <IndexRoute component={Home} />
         <Route path='/repos' component={Repos} />
+        <Route path='/repos/:name' component={Repo}/>
       </Route>
     </Router>
   </Provider>,
