@@ -7,12 +7,13 @@ import auth from './reducers/auth';
 import reducers from './reducers/index';
 import Home from './components/Home';
 import Login from './components/Login';
+import NameInput from './components/NameInput';
 
 const store = createStore(auth);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Home />
+    <NameInput />
   </Provider>,
   document.getElementById('app')
 );
