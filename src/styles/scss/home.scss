@@ -26,7 +26,7 @@
   @include center-items;
 }
 
-.current-mod-repos, .current-mod-commits, .current-mod-comparison {
+.stat {
   @include center-items;
   margin: 10px;
   flex-direction: column;

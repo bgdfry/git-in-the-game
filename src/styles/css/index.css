@@ -100,14 +100,14 @@ h4 {
   justify-content: center;
   align-items: center; }
 
-.current-mod-repos, .current-mod-commits, .current-mod-comparison {
+.stat {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 10px;
   flex-direction: column;
   text-align: center; }
-  .current-mod-repos h1, .current-mod-repos h3, .current-mod-commits h1, .current-mod-commits h3, .current-mod-comparison h1, .current-mod-comparison h3 {
+  .stat h1, .stat h3 {
     margin: 3px; }
 
 .follower-count {
