@@ -13,7 +13,7 @@ Error: Undefined mixin 'center-items'.
 9:   background: $color-light;
 10:   height: $screen-size-height-small;
 11:   img {
-12:     
+12: 
 
 Backtrace:
 ./src/styles/scss/app.scss:7:in `center-items'
@@ -69,4 +69,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'center-items'.\A         on line 7 of ./src/styles/scss/app.scss, in `center-items'\A         from line 7 of ./src/styles/scss/app.scss\A \A 2:   height: 300px;\A 3:   display: flex;\A 4: }\A 5: \A 6: .back {\A 7:   @include center-items;\A 8:   @include screen-width-small(60px);\A 9:   background: $color-light;\A 10:   height: $screen-size-height-small;\A 11:   img {\A 12:     "; }
+  content: "Error: Undefined mixin 'center-items'.\A         on line 7 of ./src/styles/scss/app.scss, in `center-items'\A         from line 7 of ./src/styles/scss/app.scss\A \A 2:   height: 300px;\A 3:   display: flex;\A 4: }\A 5: \A 6: .back {\A 7:   @include center-items;\A 8:   @include screen-width-small(60px);\A 9:   background: $color-light;\A 10:   height: $screen-size-height-small;\A 11:   img {\A 12: "; }

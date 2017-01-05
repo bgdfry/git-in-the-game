@@ -8,40 +8,49 @@ export default class Repos extends React.Component {
 
 render(){
   return(
-      <div className='home-container'>
-        <section className='back back-left'> ▷ </section>
+      <section className='home-container'>
+        <section className='back back-left'>
+          <img src='../imgs/left-arrow.svg' />
+        </section>
 
         <section className='home'>
           <section className='current-mod-stats'>
-            <div className='stat'>
+            <section className='stat'>
 
-            </div>
-            <div className=''>
-              <div> 
-                <h2>Mod 1</h2>
-                <h4>Start Date:</h4>
+            </section>
+            <form className='mod-form'>
+              <section className='mod-input'>
+                <label>
+                  <h2>Mod 1</h2>
+                  <h4>Start Date:</h4>
+                </label>
                 <input type='date' />
-              </div>
-              <div> 
-                <h2>Mod 2</h2>
-                <h4>Start Date:</h4>
+              </section>
+              <section className='mod-input'>
+                <label>
+                  <h2>Mod 2</h2>
+                  <h4>Start Date:</h4>
+                </label>
                 <input type='date' />
-              </div>
-              <div> 
-                <h2>Mod 3</h2>
-                <h4>Start Date:</h4>
+              </section>
+              <section className='mod-input'>
+                <label>
+                  <h2>Mod 3</h2>
+                  <h4>Start Date:</h4>
+                </label>
                 <input type='date' />
-              </div>
-              <div> 
-                <h2>Mod 4</h2>
-                <h4>Start Date:</h4>
+              </section>
+              <section className='mod-input'>
+                <label>
+                  <h2>Mod 4</h2>
+                  <h4>Start Date:</h4>
+                </label>
                 <input type='date' />
-              </div>
-
-            </div>
+              </section>
+            </form>
           </section>
         </section>
-      </div>
+      </section>
     );
   }
 };

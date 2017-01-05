@@ -66,6 +66,12 @@ h4 {
   font-size: 10px;
   color: #707070; }
 
+input {
+  background: #D8D8D8;
+  border-radius: 5px;
+  border: none;
+  padding: 0px 3px; }
+
 .app {
   height: 300px;
   display: flex; }
@@ -88,11 +94,11 @@ h4 {
   background: #a3a3a3;
   transition: 0.15s; }
 
-.back-right:hover {
-  margin-left: -13px; }
+.back-right:hover img {
+  margin-right: -3px; }
 
-.back-left:hover {
-  margin-right: -13px; }
+.back-left:hover img {
+  margin-left: -3px; }
 
 .home-container {
   display: flex;
@@ -137,5 +143,11 @@ h4 {
   .follower-count h3, .follower-count h4 {
     color: #D8D8D8;
     margin: 2px; }
+
+.mod-input {
+  display: flex;
+  margin: 20px; }
+  .mod-input label {
+    padding-right: 5px; }
 
 /*# sourceMappingURL=index.css.map */

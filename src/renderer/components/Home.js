@@ -31,7 +31,9 @@ render(){
             <h4>Followers</h4>
           </div>
         </section>
-        <section className='back back-right'> ▷ </section>
+        <section className='back back-right'>
+          <img src='../imgs/right-arrow.svg' />
+        </section>
       </div>
     );
   }

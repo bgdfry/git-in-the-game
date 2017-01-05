@@ -9,7 +9,7 @@
   background: $color-light;
   height: $screen-size-height-small;
   img {
-    
+
   }
 }
 
@@ -27,9 +27,13 @@
 }
 
 .back-right:hover {
-  margin-left: -13px;  
+  img {
+    margin-right: -3px;
+  }
 }
 
 .back-left:hover {
-  margin-right: -13px;  
+  img {
+    margin-left: -3px;
+  }
 }
