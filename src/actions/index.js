@@ -16,3 +16,10 @@ export const logoutUser = () => {
     data: false
   }
 }
+
+export const setStartDate = (mod, date) => {
+  return {
+    type: mod,
+    data: date
+  }
+}
