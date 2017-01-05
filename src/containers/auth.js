@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { loginUser, submitUserName } from '../actions/index';
+import NameInput from '../components/NameInput';
 
 const mapStateToProps = (state) => {
   return {
@@ -19,4 +20,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps);
+export default connect(mapStateToProps, mapDispatchToProps)(NameInput);

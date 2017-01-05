@@ -1,5 +1,5 @@
-
 const auth = (state = {}, action) => {
+  console.log('reducers', action.value );
   switch (action.type) {
     case 'LOGIN':
       return { auth: action.data };
