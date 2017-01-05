@@ -1,4 +1,5 @@
 import React from 'react';
+import CircularProgressbar from 'react-circular-progressbar';
 
 export default class Home extends React.Component {
   constructor() {
@@ -24,7 +25,9 @@ render(){
 
           <div className='stat'>
             <h3>You VS Last Mod:</h3>
-            <h1>+22</h1>
+            <CircularProgressbar
+              percentage={60}
+              strokeWidth={20} />
           </div>
           <div className='follower-count'>
             <h3>14</h3>
