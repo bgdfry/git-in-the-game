@@ -1,7 +1,7 @@
 // COLOR
 
-$color-main-light: lighten($color-main, 20);
 $color-main: #707070;
+$color-main-light: lighten($color-main, 20);
 $color-main-dark: darken($color-main, 20);
 
 $color-winning: #82C13C;
@@ -10,3 +10,30 @@ $color-losing: #D0011B;
 // FONT
 
 $font-main: roboto;
+
+
+// HEADINGS
+
+h1 {
+  font-family: $font-main;
+  font-size: 24px;
+  color: $font-main;
+}
+
+h2 {
+  font-family: $font-main;
+  font-size: 18px;
+  color: $font-main;  
+}
+
+h3 {
+  font-family: $font-main;
+  font-size: 14px;
+  color: $font-main;  
+}
+
+h4 {
+  font-family: $font-main;
+  font-size: 24px;
+  color: $font-main;  
+}
