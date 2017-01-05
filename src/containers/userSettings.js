@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
-import { loginUser } from '../actions/index';
+import { setStartDate } from '../actions/index';
 
 const mapStateToProps = (state) => {
-  return { auth: state.auth };
+  return { modStartDates: state.modStartDates };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    login: (data) => {
-       dispatch(loginUser(data));
+    setStartDate: (mod, date) => {
+       dispatch(setStartDate(mod, date));
      }
   };
 };

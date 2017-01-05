@@ -5,10 +5,10 @@ import CircularProgressbar from 'react-circular-progressbar';
 export default class Home extends React.Component {
   constructor() {
     super();
-}
+  }
 
-render(){
-  return(
+  render(){
+    return(
       <div className='home-container'>
         <section className='home'>
           <section className='current-mod-stats'>

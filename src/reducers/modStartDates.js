@@ -1,21 +1,14 @@
 
-let initialState = {
-  mod1start: '',
-  mod2start: '',
-  mod3start: '',
-  mod4start: ''
-}
-
-const modStartDates = (state = initialState, action) => {
+const modStartDates = (state = {}, action) => {
   switch (action.type) {
     case 'MOD1':
-      return { ...initialState, mod1start: action.data };
+      return { ...state, mod1: action.data };
     case 'MOD2':
-      return { ...initialState, mod2start: action.data };
+      return { ...state, mod2: action.data };
     case 'MOD3':
-      return { ...initialState, mod3start: action.data };
+      return { ...state, mod3: action.data };
     case 'MOD4':
-      return { ...initialState, mod4start: action.data };
+      return { ...state, mod4: action.data };
   default:
     return state;
   }

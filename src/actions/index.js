@@ -19,7 +19,7 @@ export const logoutUser = () => {
 
 export const setStartDate = (mod, date) => {
   return {
-    type: date,
+    type: mod,
     data: date
   }
 }
