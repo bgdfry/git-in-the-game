@@ -144,6 +144,20 @@ input {
     color: #D8D8D8;
     margin: 2px; }
 
+.CircularProgressbar .CircularProgressbar-path {
+  stroke: #82C13C;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease 0s; }
+
+.CircularProgressbar .CircularProgressbar-trail {
+  stroke: #d6d6d6; }
+
+.CircularProgressbar .CircularProgressbar-text {
+  fill: #82C13C;
+  font-size: 20px;
+  dominant-baseline: middle;
+  text-anchor: middle; }
+
 .mod-input {
   display: flex;
   margin: 20px; }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export default class Repos extends React.Component {
   constructor() {
@@ -8,9 +9,9 @@ export default class Repos extends React.Component {
 render(){
   return(
       <section className='home-container'>
-        <section className='back back-left'>
-          <img src='../imgs/left-arrow.svg' />
-        </section>
+        <Link to={'/'} className='back back-left'>
+          <img src='./imgs/left-arrow.svg' />
+        </Link>
 
         <section className='home'>
           <section className='current-mod-stats'>

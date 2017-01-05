@@ -1,10 +1,10 @@
 import {app, BrowserWindow} from 'electron';
 import menubar from 'menubar';
 
-let mb = menubar({maxWidth: 300, maxHeight: 300, minWidth: 300, minHeight: 300, alwaysOnTop: true});
+let mb = menubar({maxWidth: 800, maxHeight: 800, minWidth: 300, minHeight: 300, alwaysOnTop: true});
 
 mb.on('ready', () => {
-  console.log('Application is ready')
+  console.log('Application is ready');
   mb.showWindow();
 });
 
