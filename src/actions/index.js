@@ -2,10 +2,10 @@ const types = {
   USERNAME: 'USERNAME'
 };
 
-export const submitUserName = (username) => {
+export const submitUserName = (inputVal) => {
   return {
     type: types.USERNAME,
-    username: username
+    username: inputVal
   };
 };
 

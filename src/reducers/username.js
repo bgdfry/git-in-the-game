@@ -1,7 +1,8 @@
 const username = (state = {}, action) => {
-  switch (action.type) {
+  const { type, username } = action;
+  switch (type) {
     case 'USERNAME':
-      return { username: action.username };
+      return username;
   default:
     return state;
   }
