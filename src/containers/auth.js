@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { loginUser } from '../actions/index';
+import { setStartDate } from '../actions/index';
 
 const mapStateToProps = (state) => {
   return { auth: state.auth };
