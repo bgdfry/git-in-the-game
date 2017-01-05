@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
 import CircularProgressbar from 'react-circular-progressbar';
+import userSettings from '../containers/userSettings';
 
-export default class Home extends React.Component {
+class Home extends React.Component {
   constructor() {
     super();
 }
@@ -12,7 +13,7 @@ goToRepos() {
 }
 
 grabUserInfo() {
-  fetch('https://api.github.com/users/bcgodfrey91', {
+  fetch(`https://api.github.com/users/${this.props.username}`, {
     method: 'GET'
   })
   .then((res) => {return res.json(); })
@@ -20,8 +21,8 @@ grabUserInfo() {
   .catch(() => { alert('nah')})
 }
 
-render(){
-  return(
+  render(){
+    return(
       <div className='home-container'>
         <section className='home'>
           <section className='current-mod-stats'>
@@ -34,8 +35,6 @@ render(){
               <h1>134</h1>
             </div>
           </section>
-
-
           <div className='stat'>
             <h3>You VS Last Mod:</h3>
             <CircularProgressbar
@@ -58,3 +57,5 @@ render(){
     );
   }
 };
+
+export default userSettings(Home);

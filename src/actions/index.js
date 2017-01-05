@@ -1,18 +1,17 @@
 const types = {
-  LOGIN: 'LOGIN',
-  LOGOUT: 'LOGOUT'
-}
+  USERNAME: 'USERNAME'
+};
 
-export const loginUser = () => {
+export const submitUserName = (inputVal) => {
   return {
-    type: 'LOGIN',
-    data: true
-  }
-}
+    type: types.USERNAME,
+    username: inputVal
+  };
+};
 
-export const logoutUser = () => {
+export const setStartDate = (mod, date) => {
   return {
-    type: types.LOGOUT,
-    data: false
-  }
-}
+    type: mod,
+    data: date
+  };
+};
