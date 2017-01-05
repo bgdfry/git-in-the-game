@@ -12,7 +12,7 @@ const store = createStore(auth);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Login />
+    <Home />
   </Provider>,
   document.getElementById('app')
 );

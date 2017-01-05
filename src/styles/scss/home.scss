@@ -1,0 +1,42 @@
+.home-container {
+  display: flex;
+  flex-direction: row;
+  height: $screen-size-height-small;
+  width: 100%;
+}
+
+.home {
+  @include screen-width-small(260px);
+  @include center-items;
+  flex-direction: column;
+  border-radius: 5px;
+  background: white;
+  z-index: 1;
+}
+
+.current-mod-stats {
+  @include center-items;
+}
+
+.stat {
+  @include center-items;
+  margin: 10px;
+  flex-direction: column;
+  text-align: center;
+  h1, h3 {
+    margin: 3px;
+  }
+}
+
+.follower-count {
+  @include center-items;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 10px;
+  h3, h4 {
+    color: $color-light;
+    margin: 2px;
+  }
+}
