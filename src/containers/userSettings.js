@@ -2,7 +2,10 @@ import { connect } from 'react-redux';
 import { setStartDate, submitUserName } from '../actions/index';
 
 const mapStateToProps = (state) => {
-  return { modStartDates: state.modStartDates };
+  return {
+    modStartDates: state.modStartDates,
+    username: state.username
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
