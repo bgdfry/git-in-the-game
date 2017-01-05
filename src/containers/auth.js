@@ -3,16 +3,16 @@ import { loginUser, submitUserName } from '../actions/index';
 
 const mapStateToProps = (state) => {
   return {
-    auth: state.auth,
+    // auth: state.auth,
     username: state.username
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    login: (data) => {
-       dispatch(loginUser(data));
-     },
+    // login: (data) => {
+    //    dispatch(loginUser(data));
+    //  },
     username: (username) => {
       dispatch(submitUserName(username));
     }

@@ -18,6 +18,9 @@ export const logoutUser = () => {
   };
 };
 
-export const submitUserName = () => {
-  return { type: types.USERNAME };
+export const submitUserName = (username) => {
+  return {
+    type: types.USERNAME,
+    username: username 
+  };
 };

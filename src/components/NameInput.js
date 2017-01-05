@@ -1,16 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const NameInput = ({submitUserName}) => {
+const NameInput = ({ submitUserName }) => {
+let input;
 return(
     <div className='home-container'>
     <Link to={'/repos'} className='back back-left'>
       <img src='./imgs/left-arrow.svg' />
     </Link>
       <section className='home'>
-        <input type='text' placeholder='Input GitHub username' value=''></input>
-        <button type='submit' onClick={submitUserName(input.value)}>Submit</button>
+        <form onSubmit={ (e) => {
+          e.preventDefault()
+          submitUserName(input.value)
+        }}>
+          <input placeholder='Github isername' ref={ node => {input = node} }/>
+          <button children='Submit' />
+        </form>
       </section>
     </div>
   );
 };
+
+export default NameInput;
