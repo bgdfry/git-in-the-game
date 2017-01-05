@@ -8,7 +8,7 @@ import auth from './reducers/auth';
 import modStartDates from './reducers/modStartDates';
 import rootReducer from './reducers/index'
 import Home from './components/Home';
-import Login from './components/Login';
+import Settings from './components/Settings';
 import App from './components/App';
 import Repos from './components/Repos';
 
@@ -18,7 +18,8 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path='/' component={App}>
-        <IndexRoute component={Home} />
+        <IndexRoute component={Settings} />
+        <Route path='/home' component={Home} />
         <Route path='/repos' component={Repos} />
       </Route>
     </Router>
