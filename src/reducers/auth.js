@@ -5,6 +5,8 @@ const auth = (state = {}, action) => {
       return { auth: action.data };
     case 'LOGOUT':
       return { auth: action.data };
+    case 'USERNAME':
+      return { username: action.value };
   default:
     return state;
   }

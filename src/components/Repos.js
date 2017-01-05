@@ -9,7 +9,7 @@ export default class Repos extends React.Component {
 render(){
   return(
       <section className='home-container'>
-        <Link to={'/'} className='back back-left'>
+        <Link to='/' className='back back-left'>
           <img src='./imgs/left-arrow.svg' />
         </Link>
 
@@ -50,6 +50,10 @@ render(){
             </form>
           </section>
         </section>
+        <Link to='/username-input'
+          className='back back-right'>
+        <img src='./imgs/right-arrow.svg' />
+        </Link>
       </section>
     );
   }
