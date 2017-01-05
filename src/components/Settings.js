@@ -8,7 +8,6 @@ class Settings extends React.Component {
   render() {
     return (
       <div className="login-container">
-        <h1>Settings Screen!</h1>
         <form className='mod-form'>
           <section className='mod-input'>
             <label>
