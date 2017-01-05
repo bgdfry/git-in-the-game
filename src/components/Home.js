@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
 import CircularProgressbar from 'react-circular-progressbar';
+import userSettings from '../containers/userSettings'
 
-export default class Home extends React.Component {
+class Home extends React.Component {
   constructor() {
     super();
   }
@@ -13,6 +14,7 @@ export default class Home extends React.Component {
         <Link to={'/'} className='back back-left'>
           <img src='./imgs/left-arrow.svg' />
         </Link>
+        <h2>Hello { this.props.username }!</h2>
         <section className='home'>
           <section className='current-mod-stats'>
             <div className='stat'>
@@ -43,3 +45,5 @@ export default class Home extends React.Component {
     );
   }
 };
+
+export default userSettings(Home);

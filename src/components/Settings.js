@@ -6,8 +6,16 @@ import { Link } from 'react-router';
 class Settings extends React.Component {
 
   render() {
+    let input
     return (
       <div className="login-container">
+        <form onSubmit={ (e) => {
+          e.preventDefault()
+          this.props.submitUserName(input.value)
+        }}>
+          <input placeholder='Github username' ref={ node => {input = node} }/>
+          <button children='Submit' />
+        </form>
         <form className='mod-form'>
           <section className='mod-input'>
             <label>

@@ -42,10 +42,6 @@ export default class Repos extends React.Component {
 
           </section>
         </section>
-        <Link to='/username-input'
-          className='back back-right'>
-        <img src='./imgs/right-arrow.svg' />
-        </Link>
       </section>
     );
   }
