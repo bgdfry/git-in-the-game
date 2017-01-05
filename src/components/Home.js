@@ -11,6 +11,14 @@ goToRepos() {
   this.context.router.push('/repos');
 }
 
+grabUserInfo() {
+  fetch('https://api.github.com/users/bcgodfrey91/repos', {
+    method: 'GET'
+  })
+  .then((res) => {return res.json(); })
+  .then((response) => { alert(response.length); })
+  .catch(() => { alert('nah')})
+}
 
 render(){
   return(
@@ -37,6 +45,9 @@ render(){
           <div className='follower-count'>
             <h3>14</h3>
             <h4>Followers</h4>
+            <button
+            onClick={() => this.grabUserInfo()}
+            ></button>
           </div>
         </section>
         <Link to='/repos'
