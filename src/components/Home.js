@@ -12,11 +12,11 @@ goToRepos() {
 }
 
 grabUserInfo() {
-  fetch('https://api.github.com/users/bcgodfrey91/repos', {
+  fetch('https://api.github.com/users/bcgodfrey91', {
     method: 'GET'
   })
   .then((res) => {return res.json(); })
-  .then((response) => { alert(response.length); })
+  .then((response) => { alert(response.public_repos); })
   .catch(() => { alert('nah')})
 }
 
