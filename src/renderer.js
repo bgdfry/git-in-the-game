@@ -4,10 +4,9 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-import modStartDates from './reducers/modStartDates';
 import rootReducer from './reducers/index';
 import Home from './components/Home';
-import NameInput from './components/NameInput';
+import Settings from './components/Settings';
 import App from './components/App';
 import Repos from './components/Repos';
 
@@ -17,9 +16,9 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path='/' component={App}>
-        <IndexRoute component={Home} />
+        <IndexRoute component={Settings} />
+        <Route path='/home' component={Home} />
         <Route path='/repos' component={Repos} />
-        <Route path='/username-input' component={NameInput} />
       </Route>
     </Router>
   </Provider>,
