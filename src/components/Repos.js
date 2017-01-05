@@ -4,6 +4,16 @@ import { Link } from 'react-router';
 export default class Repos extends React.Component {
   constructor() {
     super();
+    this.state = {
+      mod1start: '',
+      mod2start: '',
+      mod3start: '',
+      mod4start: ''
+    }
+}
+
+updateStartDate(e, mod){
+  this.setState({ [mod]: e.target.value });
 }
 
 render(){
@@ -24,7 +34,7 @@ render(){
                   <h2>Mod 1</h2>
                   <h4>Start Date:</h4>
                 </label>
-                <input type='date' />
+                <input type='date' onChange={(e)=>this.updateStartDate(e, 'mod1start')}/>
               </section>
               <section className='mod-input'>
                 <label>
