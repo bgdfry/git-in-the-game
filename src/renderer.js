@@ -5,14 +5,15 @@ import { createStore } from 'redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import auth from './reducers/auth';
-import reducers from './reducers/index';
+import modStartDates from './reducers/modStartDates';
+import rootReducer from './reducers/index'
 import Home from './components/Home';
 import Login from './components/Login';
 import NameInput from './components/NameInput';
 import App from './components/App';
 import Repos from './components/Repos';
 
-const store = createStore(auth);
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>

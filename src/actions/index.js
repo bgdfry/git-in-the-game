@@ -19,9 +19,15 @@ export const logoutUser = () => {
 };
 
 export const submitUserName = (username) => {
-  console.log('actions: ', username)
   return {
     type: types.USERNAME,
     username: username
+  };
+};
+
+export const setStartDate = (mod, date) => {
+  return {
+    type: mod,
+    data: date
   };
 };

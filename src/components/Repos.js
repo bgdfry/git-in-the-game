@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router';
+import userSettings from '../containers/userSettings';
 
-export default class Repos extends React.Component {
+class Repos extends React.Component {
   constructor() {
     super();
     this.state = {
+
       repositiories: [
         { name: 'fish-wrangler', link: 'https://www.youtube.com/watch?v=xfr64zoBTAQ'},
         { name: 'colorado-weather', link: 'https://www.youtube.com/watch?v=xfr64zoBTAQ'},
@@ -15,12 +17,14 @@ export default class Repos extends React.Component {
   }
 
   renderRepoNames() {
-    this.state.repositiories ?
-    this.state.repositiories.map((repo) => {
-      return <a href={repo.link}><h3>{repo.name}</h3></a>
-    })
-    :
-    <h2>No Repos</h2>
+    return (
+      this.state.repositiories ?
+      this.state.repositiories.map((repo) => {
+        return <a href={repo.link}><h3>{repo.name}</h3></a>
+      })
+      :
+      <h2>No Repos</h2>
+    )
   }
 
   render(){
@@ -42,28 +46,40 @@ export default class Repos extends React.Component {
                   <h2>Mod 1</h2>
                   <h4>Start Date:</h4>
                 </label>
-                <input type='date' />
+                <input
+                  type='date'
+                  onChange={(e) => this.props.setStartDate('MOD1', e.target.value)}
+                />
               </section>
               <section className='mod-input'>
                 <label>
                   <h2>Mod 2</h2>
                   <h4>Start Date:</h4>
                 </label>
-                <input type='date' />
+                <input
+                  type='date'
+                  onChange={(e) => this.props.setStartDate('MOD2', e.target.value)}
+                />
               </section>
               <section className='mod-input'>
                 <label>
                   <h2>Mod 3</h2>
                   <h4>Start Date:</h4>
                 </label>
-                <input type='date' />
+                <input
+                  type='date'
+                  onChange={(e) => this.props.setStartDate('MOD3', e.target.value)}
+                  />
               </section>
               <section className='mod-input'>
                 <label>
                   <h2>Mod 4</h2>
                   <h4>Start Date:</h4>
                 </label>
-                <input type='date' />
+                <input
+                  type='date'
+                  onChange={(e) => this.props.setStartDate('MOD4', e.target.value)}
+                />
               </section>
             </form>
           </section>
@@ -76,3 +92,5 @@ export default class Repos extends React.Component {
     );
   }
 };
+
+export default userSettings(Repos);
