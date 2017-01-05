@@ -175,4 +175,31 @@ a {
   .mod-input label {
     padding-right: 5px; }
 
+.repo-container {
+  padding: 30px 25px 0px 25px;
+  border-radius: 5px;
+  width: 100%;
+  z-index: 1;
+  background: white; }
+
+.repo-info {
+  display: flex;
+  width: 100%;
+  align-items: center; }
+
+.repo-title {
+  flex: 1; }
+  .repo-title h1, .repo-title h3 {
+    padding-left: 10px;
+    display: inline-flex;
+    align-items: center; }
+
+.repo-stars {
+  display: flex; }
+  .repo-stars h3, .repo-stars img {
+    color: #D8D8D8;
+    display: inline-flex;
+    align-items: center;
+    padding-right: 10px; }
+
 /*# sourceMappingURL=index.css.map */

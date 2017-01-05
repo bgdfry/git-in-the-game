@@ -13,12 +13,12 @@ class Repo extends React.Component {
         <Link to={'/repos'} className='back back-left'>
           <img src='./imgs/left-arrow.svg' />
         </Link>
-        <section className='main'>
+        <section className='repo-container'>
           <section className='repo-info'>
-            <section>
-              <h3>REPO:</h3> <h1>{this.props.params.name}</h1>
+            <section className='repo-title'>
+              <h3>REPO:<h1>{this.props.params.name}</h1></h3>
             </section>
-            <section>
+            <section className='repo-stars'>
               <h3>3</h3>
               <img src='./imgs/star.svg' />
             </section>

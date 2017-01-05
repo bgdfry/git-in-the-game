@@ -4,7 +4,7 @@ import menubar from 'menubar';
 let mb = menubar({maxWidth: 2000, maxHeight: 2000, minWidth: 600, minHeight: 300, height: 300, width: 600, alwaysOnTop: true, icon: './sketch/logoSmallest.png' || './sketch/logoSmallest.png@2x' });
 
 mb.on('ready', () => {
-  console.log('Application is ready')
+  console.log('Application is ready');
   mb.showWindow();
 });
 

@@ -17,7 +17,7 @@ class Repos extends React.Component {
         { name: 'jacked', link: 'https://www.youtube.com/watch?v=xfr64zoBTAQ'},
         { name: 'social-influence', link: 'https://www.youtube.com/watch?v=xfr64zoBTAQ'},
       ]
-    }
+    };
   }
 
   renderRepoNames() {
@@ -90,6 +90,10 @@ class Repos extends React.Component {
             </form>
           </section>
         </section>
+        <Link to='/username-input'
+          className='back back-right'>
+        <img src='./imgs/right-arrow.svg' />
+        </Link>
       </section>
     );
   }
