@@ -1,3 +1,11 @@
+.all-repos {
+  max-height: 500px;
+  width: 200px; }
+  .all-repos ul {
+    overflow-y: scroll; }
+  .all-repos li {
+    margin: 10px 0px; }
+
 .mod-input {
   display: flex;
   margin: 20px; }

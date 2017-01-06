@@ -8,7 +8,7 @@ class Settings extends React.Component {
   render() {
     let input
     return (
-      <div className="login-container">
+      <div className="main-container">
         <form onSubmit={ (e) => {
           e.preventDefault()
           this.props.submitUserName(input.value)
