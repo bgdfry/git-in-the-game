@@ -6,6 +6,9 @@ import userSettings from '../containers/userSettings';
 class Home extends React.Component {
   constructor() {
     super();
+    this.state = {
+      events: []
+    }
 }
 
 goToRepos() {
@@ -13,11 +16,11 @@ goToRepos() {
 }
 
 grabUserInfo() {
-  fetch(`https://api.github.com/users/${this.props.username}`, {
+  fetch(`https://api.github.com/users/${this.props.username}/events?page=0&callback`, {
     method: 'GET'
   })
   .then((res) => {return res.json(); })
-  .then((response) => { alert(response.public_repos); })
+  .then((response) => { console.log(response); })
   .catch(() => { alert('nah')})
 }
 
