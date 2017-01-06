@@ -28,20 +28,14 @@ grabUserInfo() {
 
 getPushEvent() {
   const { events } = this.state
-  const pushEv = events.filter((ghEvent) => {
-    return ghEvent.type==='PushEvent'
-  })
+  const pushEv = events.filter((ghEvent) => ghEvent.type==='PushEvent')
   this.setState({ pushEvents: pushEv})
 }
 
 getCommits() {
   const { pushEvents } = this.state
-  const commitLengths = pushEvents.map((obj) => {
-    return obj.payload.commits.length
-  })
-  const reducedCommits = commitLengths.reduce((a, b) => {
-    return a + b
-  }, 0)
+  const commitLengths = pushEvents.map((obj) => obj.payload.commits.length)
+  const reducedCommits = commitLengths.reduce((a, b) => a + b, 0)
   console.log(reducedCommits);
 }
 
