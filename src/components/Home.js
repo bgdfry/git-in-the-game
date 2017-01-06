@@ -32,11 +32,18 @@ getPushEvent() {
   this.setState({ pushEvents: pushEv})
 }
 
+getOpenedPullRequests() {
+  const { events } = this.state
+  const pullReq = events.filter((ghEvent) => ghEvent.type==='PullRequestEvent')
+  const openedPullRequests = pullReq.filter((obj) => obj.payload.action==='opened')
+  return openedPullRequests.length
+}
+
 getCommits() {
   const { pushEvents } = this.state
   const commitLengths = pushEvents.map((obj) => obj.payload.commits.length)
   const reducedCommits = commitLengths.reduce((a, b) => a + b, 0)
-  console.log(reducedCommits);
+  return reducedCommits
 }
 
   render(){
@@ -69,7 +76,7 @@ getCommits() {
             onClick={() => console.log(this.state.pushEvents) }
             >log</button>
             <button
-            onClick={() => this.getCommits() }
+            onClick={() => this.getIssuesClosed() }
             >commits</button>
           </div>
         </section>
