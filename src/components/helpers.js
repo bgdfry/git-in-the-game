@@ -1,4 +1,5 @@
-[
+
+export default [
   {
     "id": "5110231337",
     "type": "PushEvent",

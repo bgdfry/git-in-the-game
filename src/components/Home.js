@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router';
 import CircularProgressbar from 'react-circular-progressbar';
 import userSettings from '../containers/userSettings';
-import mockData from '../mockData'
+import helpers from './helpers'
 
 class Home extends React.Component {
   constructor() {
     super();
     this.state = {
-      events: mockData
+      events: helpers,
     }
 }
 
@@ -23,6 +23,14 @@ grabUserInfo() {
   .then((res) => {return res.json(); })
   .then((response) => { this.setState({events: response}) })
   .catch(() => { alert('Please try again.')})
+}
+
+getPushEvent() {
+  const { events } = this.state
+  const pushEvents = events.filter((ghEvent) => {
+    return ghEvent.type === 'PushEvent'
+  })
+  console.log(pushEvents);
 }
 
   render(){
@@ -49,7 +57,7 @@ grabUserInfo() {
             <h3>14</h3>
             <h4>Followers</h4>
             <button
-            onClick={() => this.grabUserInfo()}
+            onClick={() => this.getPushEvent()}
             >fetch</button>
             <button
             onClick={() => console.log(this.state.events) }
