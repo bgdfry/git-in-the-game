@@ -39,6 +39,13 @@ getOpenedPullRequests() {
   return openedPullRequests.length
 }
 
+getIssuesCreated() {
+  const { events } = this.state
+  const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent')
+  const openedIssues = issues.filter((obj) => obj.payload.action==='opened')
+  return openedIssues.length
+}
+
 getCommits() {
   const { pushEvents } = this.state
   const commitLengths = pushEvents.map((obj) => obj.payload.commits.length)
