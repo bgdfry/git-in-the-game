@@ -46,6 +46,13 @@ getIssuesCreated() {
   return openedIssues.length
 }
 
+getIssuesClosed() {
+  const { events } = this.state
+  const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent')
+  const closedIssues = issues.filter((obj) => obj.payload.action==='closed')
+  return closedIssues.length
+}
+
 getCommits() {
   const { pushEvents } = this.state
   const commitLengths = pushEvents.map((obj) => obj.payload.commits.length)
