@@ -9,6 +9,7 @@ class Home extends React.Component {
     super();
     this.state = {
       events: helpers,
+      pushEvents: null,
     }
 }
 
@@ -27,10 +28,21 @@ grabUserInfo() {
 
 getPushEvent() {
   const { events } = this.state
-  const pushEvents = events.filter((ghEvent) => {
-    return ghEvent.type === 'PushEvent'
+  const pushEv = events.filter((ghEvent) => {
+    return ghEvent.type==='PushEvent'
   })
-  console.log(pushEvents);
+  this.setState({ pushEvents: pushEv})
+}
+
+getCommits() {
+  const { pushEvents } = this.state
+  const commitLengths = pushEvents.map((obj) => {
+    return obj.payload.commits.length
+  })
+  const reducedCommits = commitLengths.reduce((a, b) => {
+    return a + b
+  }, 0)
+  console.log(reducedCommits);
 }
 
   render(){
@@ -60,8 +72,11 @@ getPushEvent() {
             onClick={() => this.getPushEvent()}
             >fetch</button>
             <button
-            onClick={() => console.log(this.state.events) }
+            onClick={() => console.log(this.state.pushEvents) }
             >log</button>
+            <button
+            onClick={() => this.getCommits() }
+            >commits</button>
           </div>
         </section>
         <Link to='/repos'
