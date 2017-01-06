@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router';
 import CircularProgressbar from 'react-circular-progressbar';
 import userSettings from '../containers/userSettings';
+import mockData from '../mockData'
 
 class Home extends React.Component {
   constructor() {
     super();
     this.state = {
-      events: []
+      events: mockData
     }
 }
 
@@ -16,12 +17,12 @@ goToRepos() {
 }
 
 grabUserInfo() {
-  fetch(`https://api.github.com/users/${this.props.username}/events?page=0&callback`, {
+  fetch(`https://api.github.com/users/bcgodfrey91/events?page=0&callback`, {
     method: 'GET'
   })
   .then((res) => {return res.json(); })
-  .then((response) => { console.log(response); })
-  .catch(() => { alert('nah')})
+  .then((response) => { this.setState({events: response}) })
+  .catch(() => { alert('Please try again.')})
 }
 
   render(){
@@ -49,7 +50,10 @@ grabUserInfo() {
             <h4>Followers</h4>
             <button
             onClick={() => this.grabUserInfo()}
-            ></button>
+            >fetch</button>
+            <button
+            onClick={() => console.log(this.state.events) }
+            >log</button>
           </div>
         </section>
         <Link to='/repos'
