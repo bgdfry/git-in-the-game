@@ -24,11 +24,10 @@ const doesStorageExist = () => {
     });
 };
 
-const saveUsername = exports.saveUsername = (username) => {
-  storage.get('saved-github-data')
-    .then((data) => {
-      console.log(data);
-    });
+
+
+const saveUsername = exports.saveUsername = (usernameData) => {
+  storage.set('saved-github-data', usernameData);
 };
 
 const defaultData = { username: '' };
