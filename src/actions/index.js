@@ -1,5 +1,6 @@
 const types = {
-  USERNAME: 'USERNAME'
+  USERNAME: 'USERNAME',
+  GET_EVENTS: 'GET_EVENTS'
 };
 
 export const submitUserName = (inputVal) => {
@@ -15,3 +16,10 @@ export const setStartDate = (mod, date) => {
     data: date
   };
 };
+
+export const getEvents = (data) => {
+    return {
+      type: types.GET_EVENTS,
+      data: data
+    };
+  };
