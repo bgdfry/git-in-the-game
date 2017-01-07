@@ -28,12 +28,12 @@ grabUserInfo() {
     method: 'GET'
   })
   .then((res) => {return res.json(); })
-  .then((response) => { this.setState({events: response}); })
+  .then((response) => { this.setState({events: response});
+    this.getPushEvent(response); })
   .catch(() => { alert('Please try again.'); });
 }
 
-getPushEvent() {
-  const { events } = this.state;
+getPushEvent(events) {
   const pushEv = events.filter((ghEvent) => ghEvent.type==='PushEvent');
   this.setState({ pushEvents: pushEv});
 }
