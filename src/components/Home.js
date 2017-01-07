@@ -32,14 +32,21 @@ grabUserInfo() {
     method: 'GET'
   })
   .then((res) => {return res.json(); })
-  .then((response) => { this.setState({events: response});
-    this.getPushEvent(response);
-    this.getOpenedPullRequests(response);
-    this.getIssuesCreated(response);
-    this.getIssuesClosed(response);
-    this.getCommits();
-   })
+  .then((response) => { this.loadData(response); })
   .catch(() => { alert('Please try again.'); });
+}
+
+loadData(events) {
+  this.getEvents(events);
+  this.getPushEvent(events);
+  this.getOpenedPullRequests(events);
+  this.getIssuesCreated(events);
+  this.getIssuesClosed(events);
+  this.getCommits();
+}
+
+getEvents(events) {
+  this.setState({events: events});
 }
 
 getPushEvent(events) {
