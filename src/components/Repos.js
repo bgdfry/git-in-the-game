@@ -37,7 +37,6 @@ export default class Repos extends React.Component {
     return(
       <section className='main-container'>
         <Navigation backward={true} route={'/home'}/>
-
         <section className='main'>
           <section className='current-mod-stats'>
             <section className='all-repos'>
@@ -46,7 +45,6 @@ export default class Repos extends React.Component {
                 {this.renderRepoNames()}
               </ul>
             </section>
-
           </section>
         </section>
       </section>

@@ -10,20 +10,21 @@ class Settings extends React.Component {
     let input
     return (
       <section className="main-container">
-        <form className='mod-form'
-              onSubmit={ (e) => {
-              e.preventDefault()
-              this.props.submitUserName(input.value)
-              }}>
-          <section className='mod-input'>
-            <label>
-              <h2>Github Username</h2>
-            </label>
-            <input placeholder='Github username' ref={ node => {input = node} } />
-            <button children='Submit' />
+        <section className='main'>
+          <form className='mod-form'
+                onSubmit={ (e) => {
+                e.preventDefault()
+                this.props.submitUserName(input.value)
+                }}>
+            <section className='mod-input'>
+              <label>
+                <h2>Github Username</h2>
+              </label>
+              <input placeholder='Github username' ref={ node => {input = node} } />
+              <button children='Submit' />
+            </section>
+          </form>
           </section>
-
-        </form>
         <Navigation forward={true} route={'/home'}/>
       </section>
     );

@@ -5,7 +5,6 @@ class Navigation extends React.Component {
 
   render() {
     const { forward, backward, route } = this.props;
-    debugger;
     return (
       <Link 
         to={route}

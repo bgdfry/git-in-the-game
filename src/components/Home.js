@@ -38,7 +38,6 @@ class Home extends React.Component {
           </div>
         </section>
         <Navigation forward={true} route={'/repos'}/>
-        
       </div>
     );
   }
