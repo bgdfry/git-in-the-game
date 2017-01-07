@@ -35,7 +35,9 @@ grabUserInfo() {
   .then((response) => { this.setState({events: response});
     this.getPushEvent(response);
     this.getOpenedPullRequests(response);
-    this.getIssuesCreated(response); })
+    this.getIssuesCreated(response);
+    this.getIssuesClosed(reponse);
+   })
   .catch(() => { alert('Please try again.'); });
 }
 
@@ -56,11 +58,10 @@ getIssuesCreated(events) {
   this.setState({ openedIssues: openedIssues.length});
 }
 
-getIssuesClosed() {
-  const { events } = this.state;
+getIssuesClosed(events) {
   const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
   const closedIssues = issues.filter((obj) => obj.payload.action==='closed');
-  return closedIssues.length;
+  this.setState({ closedIssues: closedIssues.length });
 }
 
 getCommits() {
