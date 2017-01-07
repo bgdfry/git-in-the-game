@@ -10,9 +10,13 @@ class Home extends React.Component {
   constructor() {
     super();
     this.state = {
-      events: helpers,
+      events: null,
       pushEvents: null,
     };
+}
+
+componentWillMount() {
+  this.grabUserInfo();
 }
 
 goToRepos() {
@@ -91,7 +95,7 @@ getCommits() {
             onClick={() => this.getPushEvent()}
             >fetch</button>
             <button
-            onClick={() => console.log(this.state.pushEvents) }
+            onClick={() => console.log(this.state) }
             >log</button>
             <button
             onClick={() => this.getIssuesClosed() }
