@@ -1,6 +1,8 @@
 import React from 'react';
 import Navigation from './Navigation';
 import userSettings from '../containers/userSettings';
+import LineGraph from './LineGraph';
+
 
 class Repo extends React.Component {
   constructor() {
@@ -21,6 +23,15 @@ class Repo extends React.Component {
               <img src='./imgs/star.svg' />
             </section>
           </section>
+
+          { LineGraph({
+              labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], 
+              currentWeekData: [12, 10, 25, 14, 1, 2, 0],
+              previousWeekData: [8, 12, 28, 11, 10, 6, 2],
+              title: 'Commits Last Week'
+            })
+          }
+
         </section>
       </section>
     );
@@ -28,3 +39,4 @@ class Repo extends React.Component {
 };
 
 export default userSettings(Repo);
+

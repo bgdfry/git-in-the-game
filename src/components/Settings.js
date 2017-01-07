@@ -32,3 +32,4 @@ class Settings extends React.Component {
 };
 
 export default userSettings(Settings);
+
