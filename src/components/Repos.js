@@ -1,5 +1,8 @@
 import React from 'react';
+import Navigation from './Navigation';
 import { Link } from 'react-router';
+
+
 
 export default class Repos extends React.Component {
   constructor() {
@@ -33,10 +36,7 @@ export default class Repos extends React.Component {
   render(){
     return(
       <section className='main-container'>
-        <Link to={'/home'} className='back back-left'>
-          <img src='./imgs/left-arrow.svg' />
-        </Link>
-
+        <Navigation backward={true} route={'/home'}/>
         <section className='main'>
           <section className='current-mod-stats'>
             <section className='all-repos'>
@@ -45,7 +45,6 @@ export default class Repos extends React.Component {
                 {this.renderRepoNames()}
               </ul>
             </section>
-
           </section>
         </section>
       </section>

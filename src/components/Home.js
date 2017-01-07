@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router';
 import CircularProgressbar from 'react-circular-progressbar';
 import userSettings from '../containers/userSettings';
-import helpers from './helpers'
+import Navigation from './Navigation';
+import helpers from './helpers';
+
 
 class Home extends React.Component {
   constructor() {
@@ -10,7 +12,7 @@ class Home extends React.Component {
     this.state = {
       events: helpers,
       pushEvents: null,
-    }
+    };
 }
 
 goToRepos() {
@@ -22,50 +24,48 @@ grabUserInfo() {
     method: 'GET'
   })
   .then((res) => {return res.json(); })
-  .then((response) => { this.setState({events: response}) })
-  .catch(() => { alert('Please try again.')})
+  .then((response) => { this.setState({events: response}); })
+  .catch(() => { alert('Please try again.'); });
 }
 
 getPushEvent() {
-  const { events } = this.state
-  const pushEv = events.filter((ghEvent) => ghEvent.type==='PushEvent')
-  this.setState({ pushEvents: pushEv})
+  const { events } = this.state;
+  const pushEv = events.filter((ghEvent) => ghEvent.type==='PushEvent');
+  this.setState({ pushEvents: pushEv});
 }
 
 getOpenedPullRequests() {
-  const { events } = this.state
-  const pullReq = events.filter((ghEvent) => ghEvent.type==='PullRequestEvent')
-  const openedPullRequests = pullReq.filter((obj) => obj.payload.action==='opened')
-  return openedPullRequests.length
+  const { events } = this.state;
+  const pullReq = events.filter((ghEvent) => ghEvent.type==='PullRequestEvent');
+  const openedPullRequests = pullReq.filter((obj) => obj.payload.action==='opened');
+  return openedPullRequests.length;
 }
 
 getIssuesCreated() {
-  const { events } = this.state
-  const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent')
-  const openedIssues = issues.filter((obj) => obj.payload.action==='opened')
-  return openedIssues.length
+  const { events } = this.state;
+  const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
+  const openedIssues = issues.filter((obj) => obj.payload.action==='opened');
+  return openedIssues.length;
 }
 
 getIssuesClosed() {
-  const { events } = this.state
-  const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent')
-  const closedIssues = issues.filter((obj) => obj.payload.action==='closed')
-  return closedIssues.length
+  const { events } = this.state;
+  const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
+  const closedIssues = issues.filter((obj) => obj.payload.action==='closed');
+  return closedIssues.length;
 }
 
 getCommits() {
-  const { pushEvents } = this.state
-  const commitLengths = pushEvents.map((obj) => obj.payload.commits.length)
-  const reducedCommits = commitLengths.reduce((a, b) => a + b, 0)
-  return reducedCommits
+  const { pushEvents } = this.state;
+  const commitLengths = pushEvents.map((obj) => obj.payload.commits.length);
+  const reducedCommits = commitLengths.reduce((a, b) => a + b, 0);
+  return reducedCommits;
 }
 
   render(){
     return(
       <div className='main-container'>
-        <Link to={'/'} className='back back-left'>
-          <img src='./imgs/left-arrow.svg' />
-        </Link>
+        <Navigation backward={true} route={'/'}/>
         <section className='main'>
         { this.props.username ? <h2>Hello {this.props.username}!</h2> : <h2>Please enter your github name on the previous screen</h2> }
           <section className='current-mod-stats'>
@@ -98,10 +98,7 @@ getCommits() {
             >commits</button>
           </div>
         </section>
-        <Link to='/repos'
-          className='back back-right'>
-          <img src='./imgs/right-arrow.svg' />
-        </Link>
+        <Navigation forward={true} route={'/repos'}/>
       </div>
     );
   }
