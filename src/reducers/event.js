@@ -3,9 +3,9 @@ const events = (state = [], action) => {
   switch (type) {
     case 'GET_EVENTS':
       return data
+    default:
+      return state;
   }
-  default:
-    return state;
 };
 
 export default events

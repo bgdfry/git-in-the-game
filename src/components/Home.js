@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import CircularProgressbar from 'react-circular-progressbar';
 import userSettings from '../containers/userSettings';
+import userEvents from '../containers/userEvents';
 import Navigation from './Navigation';
 import helpers from './helpers';
 
@@ -10,7 +11,6 @@ class Home extends React.Component {
   constructor() {
     super();
     this.state = {
-      events: helpers,
       pushEvents: null,
     };
 }
@@ -24,7 +24,7 @@ grabUserInfo() {
     method: 'GET'
   })
   .then((res) => {return res.json(); })
-  .then((response) => { this.setState({events: response}); })
+  .then((response) =>  this.props.getEvents(response))
   .catch(() => { alert('Please try again.'); });
 }
 
@@ -88,10 +88,10 @@ getCommits() {
             <h3>14</h3>
             <h4>Followers</h4>
             <button
-            onClick={() => this.getPushEvent()}
+            onClick={() => this.grabUserInfo()}
             >fetch</button>
             <button
-            onClick={() => console.log(this.state.pushEvents) }
+            onClick={() => console.log(this.props.events) }
             >log</button>
             <button
             onClick={() => this.getIssuesClosed() }
@@ -104,4 +104,6 @@ getCommits() {
   }
 };
 
-export default userSettings(Home);
+export default userEvents(
+                userSettings(Home)
+              )
