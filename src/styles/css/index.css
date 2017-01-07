@@ -159,7 +159,8 @@ a {
   fill: #82C13C;
   font-size: 20px;
   dominant-baseline: middle;
-  text-anchor: middle; }
+  text-anchor: middle;
+  font-family: "Roboto", sans-serif; }
 
 .all-repos {
   max-height: 500px;
