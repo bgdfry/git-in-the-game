@@ -4,7 +4,7 @@ import { submitUserName } from '../actions/index';
 const mapStateToProps = (state) => {
   return {
     username: state.username
-  };``
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {

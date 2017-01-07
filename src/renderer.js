@@ -12,12 +12,19 @@ import Repos from './components/Repos';
 import Repo from './components/Repo';
 
 const store = createStore(rootReducer);
+const { ipcRenderer } = require('electron');
+
+ipcRenderer.on('retrievedGithubData', () => {
+  console.log('hey');
+});
 
 ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path='/' component={App}>
+        {/* if we have a name in storage */}
         <IndexRoute component={Settings} />
+        {/* else show */}
         <Route path='/home' component={Home} />
         <Route path='/repos' component={Repos} />
         <Route path='/repos/:name' component={Repo}/>

@@ -7,6 +7,7 @@ let mb = menubar({maxWidth: 2000, maxHeight: 2000, minWidth: 600, minHeight: 300
 mb.on('ready', () => {
   console.log('Application is ready');
   doesStorageExist();
+  retrieveStorage();
   mb.showWindow();
 });
 
@@ -24,10 +25,20 @@ const doesStorageExist = () => {
     });
 };
 
+const retrieveStorage = () => {
+  storage.get('saved-github-data')
+    .then(data => sendGithubData(data))
+    .catch(err => console.log(err));
+};
 
+const sendGithubData = (data) => {
+  console.log(data);
+  // console.log(mb.window.webContents);
+  // mb.window.webContents.send('retrievedGithubData', data);
+};
 
 const saveUsername = exports.saveUsername = (usernameData) => {
   storage.set('saved-github-data', usernameData);
 };
 
-const defaultData = { username: '' };
+const defaultData = { username: null };
