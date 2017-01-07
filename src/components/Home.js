@@ -10,9 +10,17 @@ class Home extends React.Component {
   constructor() {
     super();
     this.state = {
-      events: helpers,
+      events: null,
       pushEvents: null,
+      openedPullRequests: null,
+      issuesCreated: null,
+      issuesClosed: null,
+      commits: null
     };
+}
+
+componentWillMount() {
+  this.grabUserInfo();
 }
 
 goToRepos() {
@@ -24,42 +32,51 @@ grabUserInfo() {
     method: 'GET'
   })
   .then((res) => {return res.json(); })
-  .then((response) => { this.setState({events: response}); })
+  .then((response) => { this.loadData(response); })
   .catch(() => { alert('Please try again.'); });
 }
 
-getPushEvent() {
-  const { events } = this.state;
+loadData(events) {
+  this.getEvents(events);
+  this.getPushEvent(events);
+  this.getOpenedPullRequests(events);
+  this.getIssuesCreated(events);
+  this.getIssuesClosed(events);
+  this.getCommits();
+}
+
+getEvents(events) {
+  this.setState({events: events});
+}
+
+getPushEvent(events) {
   const pushEv = events.filter((ghEvent) => ghEvent.type==='PushEvent');
   this.setState({ pushEvents: pushEv});
 }
 
-getOpenedPullRequests() {
-  const { events } = this.state;
+getOpenedPullRequests(events) {
   const pullReq = events.filter((ghEvent) => ghEvent.type==='PullRequestEvent');
   const openedPullRequests = pullReq.filter((obj) => obj.payload.action==='opened');
-  return openedPullRequests.length;
+  this.setState({ openedPullRequests: openedPullRequests.length });
 }
 
-getIssuesCreated() {
-  const { events } = this.state;
+getIssuesCreated(events) {
   const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
   const openedIssues = issues.filter((obj) => obj.payload.action==='opened');
-  return openedIssues.length;
+  this.setState({ issuesCreated: openedIssues.length});
 }
 
-getIssuesClosed() {
-  const { events } = this.state;
+getIssuesClosed(events) {
   const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
   const closedIssues = issues.filter((obj) => obj.payload.action==='closed');
-  return closedIssues.length;
+  this.setState({ issuesClosed: closedIssues.length });
 }
 
 getCommits() {
   const { pushEvents } = this.state;
   const commitLengths = pushEvents.map((obj) => obj.payload.commits.length);
   const reducedCommits = commitLengths.reduce((a, b) => a + b, 0);
-  return reducedCommits;
+  this.setState({ commits: reducedCommits});
 }
 
   render(){
@@ -91,7 +108,7 @@ getCommits() {
             onClick={() => this.getPushEvent()}
             >fetch</button>
             <button
-            onClick={() => console.log(this.state.pushEvents) }
+            onClick={() => console.log(this.state) }
             >log</button>
             <button
             onClick={() => this.getIssuesClosed() }
