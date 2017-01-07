@@ -1,6 +1,5 @@
 const types = {
-  USERNAME: 'USERNAME',
-  GET_EVENTS: 'GET_EVENTS'
+  USERNAME: 'USERNAME'
 };
 
 export const submitUserName = (inputVal) => {
