@@ -62,8 +62,12 @@ getCommits() {
 
   render(){
     return(
-      <div className='home-container'>
-        <section className='home'>
+      <div className='main-container'>
+        <Link to={'/'} className='back back-left'>
+          <img src='./imgs/left-arrow.svg' />
+        </Link>
+        <section className='main'>
+        { this.props.username ? <h2>Hello {this.props.username}!</h2> : <h2>Please enter your github name on the previous screen</h2> }
           <section className='current-mod-stats'>
             <div className='stat'>
               <h3>Mod 1 Repost:</h3>

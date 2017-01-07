@@ -3,14 +3,27 @@
   display: flex;
 }
 
+.main-container {
+  display: flex;
+  flex-direction: row;
+  height: $screen-size-height-small;
+  width: 100%;
+}
+
+.main {
+  @include screen-width-small(560px);
+  @include center-items;
+  flex-direction: column;
+  border-radius: 5px;
+  background: white;
+  z-index: 1;
+}
+
 .back {
   @include center-items;
   @include screen-width-small(60px);
   background: $color-light;
   height: $screen-size-height-small;
-  img {
-
-  }
 }
 
 .back-right {
