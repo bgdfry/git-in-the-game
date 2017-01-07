@@ -72,42 +72,21 @@ input {
   border: none;
   padding: 0px 3px; }
 
+a {
+  text-decoration: none; }
+
 .app {
   height: 300px;
   display: flex; }
 
-.back {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 60px;
-  background: #D8D8D8;
-  height: 300px; }
-
-.back-right {
-  margin-left: -10px; }
-
-.back-left {
-  margin-right: -10px; }
-
-.back:hover {
-  background: #a3a3a3;
-  transition: 0.15s; }
-
-.back-right:hover img {
-  margin-right: -3px; }
-
-.back-left:hover img {
-  margin-left: -3px; }
-
-.home-container {
+.main-container {
   display: flex;
   flex-direction: row;
   height: 300px;
   width: 100%; }
 
-.home {
-  width: 260px;
+.main {
+  width: 560px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,6 +94,30 @@ input {
   border-radius: 5px;
   background: white;
   z-index: 1; }
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  background: #D8D8D8;
+  height: 300px; }
+
+.navigation:hover {
+  background: #a3a3a3;
+  transition: 0.15s; }
+
+.forward-nav {
+  margin-left: -10px; }
+
+.backward-nav {
+  margin-right: -10px; }
+
+.forward-nav:hover img {
+  margin-right: -3px; }
+
+.backward-nav:hover img {
+  margin-left: -3px; }
 
 .current-mod-stats {
   display: flex;
@@ -139,7 +142,7 @@ input {
   position: fixed;
   bottom: 0;
   left: 0;
-  margin: 10px; }
+  margin: 0px, 0px, 10px, 60px; }
   .follower-count h3, .follower-count h4 {
     color: #D8D8D8;
     margin: 2px; }
@@ -156,12 +159,48 @@ input {
   fill: #82C13C;
   font-size: 20px;
   dominant-baseline: middle;
-  text-anchor: middle; }
+  text-anchor: middle;
+  font-family: "Roboto", sans-serif; }
+
+.all-repos {
+  max-height: 500px;
+  width: 200px; }
+  .all-repos ul {
+    overflow-y: scroll; }
+  .all-repos li {
+    margin: 10px 0px; }
 
 .mod-input {
   display: flex;
   margin: 20px; }
   .mod-input label {
     padding-right: 5px; }
+
+.repo-container {
+  padding: 30px 25px 0px 25px;
+  border-radius: 5px;
+  width: 100%;
+  z-index: 1;
+  background: white; }
+
+.repo-info {
+  display: flex;
+  width: 100%;
+  align-items: center; }
+
+.repo-title {
+  flex: 1; }
+  .repo-title h1, .repo-title h3 {
+    padding-left: 10px;
+    display: inline-flex;
+    align-items: center; }
+
+.repo-stars {
+  display: flex; }
+  .repo-stars h3, .repo-stars img {
+    color: #D8D8D8;
+    display: inline-flex;
+    align-items: center;
+    padding-right: 10px; }
 
 /*# sourceMappingURL=index.css.map */

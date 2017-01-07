@@ -9,6 +9,7 @@ import Home from './components/Home';
 import Settings from './components/Settings';
 import App from './components/App';
 import Repos from './components/Repos';
+import Repo from './components/Repo';
 
 const store = createStore(rootReducer);
 
@@ -19,6 +20,7 @@ ReactDOM.render(
         <IndexRoute component={Settings} />
         <Route path='/home' component={Home} />
         <Route path='/repos' component={Repos} />
+        <Route path='/repos/:name' component={Repo}/>
       </Route>
     </Router>
   </Provider>,

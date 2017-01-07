@@ -1,5 +1,12 @@
-.mod-form {
-
+.all-repos {
+  max-height: 500px;
+  width: 200px;
+  ul {
+    overflow-y: scroll;
+  }
+  li {
+    margin: 10px 0px;
+  }
 }
 
 .mod-input {

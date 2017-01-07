@@ -1,24 +1,35 @@
 /*
-Error: Undefined mixin 'center-items'.
-        on line 2 of ./src/styles/scss/home.scss, in `center-items'
-        from line 2 of ./src/styles/scss/home.scss
+Error: Undefined variable: "$color-light".
+        on line 24 of ./src/styles/scss/repo.scss
 
-1: .current-mod-stats {
-2:   @include center-items;
-3: }
-4: 
-5: .stat {
-6:   @include center-items;
-7:   margin: 10px;
+19:   }
+20: }
+21: .repo-stars {
+22:   display: flex;
+23:   h3, img {
+24:     color: $color-light;
+25:     display: inline-flex;
+26:     align-items: center;
+27:     padding-right: 10px;
+28:   }
+29: }
 
 Backtrace:
-./src/styles/scss/home.scss:2:in `center-items'
-./src/styles/scss/home.scss:2
-/Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:351:in `block in visit_mixin'
-/Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/stack.rb:98:in `block in with_mixin'
+./src/styles/scss/repo.scss:24
+/Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/script/tree/variable.rb:49:in `_perform'
+/Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/script/tree/node.rb:58:in `perform'
+/Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:397:in `visit_prop'
+/Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+/Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
 /Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
-/Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/stack.rb:98:in `with_mixin'
-/Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:349:in `visit_mixin'
+/Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/stack.rb:79:in `with_base'
+/Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `visit'
+/Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:433:in `block (2 levels) in visit_rule'
+/Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:433:in `map'
+/Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:433:in `block in visit_rule'
+/Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
+/Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:431:in `visit_rule'
 /Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
 /Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
 /Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
@@ -65,4 +76,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'center-items'.\A         on line 2 of ./src/styles/scss/home.scss, in `center-items'\A         from line 2 of ./src/styles/scss/home.scss\A \A 1: .current-mod-stats {\A 2:   @include center-items;\A 3: }\A 4: \A 5: .stat {\A 6:   @include center-items;\A 7:   margin: 10px;"; }
+  content: "Error: Undefined variable: \"$color-light\".\A         on line 24 of ./src/styles/scss/repo.scss\A \A 19:   }\A 20: }\A 21: .repo-stars {\A 22:   display: flex;\A 23:   h3, img {\A 24:     color: $color-light;\A 25:     display: inline-flex;\A 26:     align-items: center;\A 27:     padding-right: 10px;\A 28:   }\A 29: }"; }

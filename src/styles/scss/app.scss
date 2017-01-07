@@ -3,36 +3,49 @@
   display: flex;
 }
 
-.back {
+.main-container {
+  display: flex;
+  flex-direction: row;
+  height: $screen-size-height-small;
+  width: 100%;
+}
+
+.main {
+  @include screen-width-small(560px);
+  @include center-items;
+  flex-direction: column;
+  border-radius: 5px;
+  background: white;
+  z-index: 1;
+}
+
+.navigation {
   @include center-items;
   @include screen-width-small(60px);
   background: $color-light;
   height: $screen-size-height-small;
-  img {
-
-  }
 }
 
-.back-right {
-  margin-left: -10px;
-}
-
-.back-left {
-  margin-right: -10px;
-}
-
-.back:hover {
+.navigation:hover {
   background: $color-main-light;
   transition: 0.15s;
 }
 
-.back-right:hover {
+.forward-nav {
+  margin-left: -10px;
+}
+
+.backward-nav {
+  margin-right: -10px;
+}
+
+.forward-nav:hover {
   img {
     margin-right: -3px;
   }
 }
 
-.back-left:hover {
+.backward-nav:hover {
   img {
     margin-left: -3px;
   }

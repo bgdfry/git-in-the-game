@@ -1,0 +1,29 @@
+.repo-container {
+  padding: 30px 25px 0px 25px;
+  border-radius: 5px;
+  width: 100%;
+  z-index: 1;
+  background: white;
+}
+.repo-info {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.repo-title {
+  flex: 1;
+  h1, h3 {
+    padding-left: 10px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+.repo-stars {
+  display: flex;
+  h3, img {
+    color: $color-light;
+    display: inline-flex;
+    align-items: center;
+    padding-right: 10px;
+  }
+}
