@@ -95,7 +95,7 @@ a {
   background: white;
   z-index: 1; }
 
-.back {
+.navigation {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,20 +103,20 @@ a {
   background: #D8D8D8;
   height: 300px; }
 
-.back-right {
-  margin-left: -10px; }
-
-.back-left {
-  margin-right: -10px; }
-
-.back:hover {
+.navigation:hover {
   background: #a3a3a3;
   transition: 0.15s; }
 
-.back-right:hover img {
+.forward-nav {
+  margin-left: -10px; }
+
+.backward-nav {
+  margin-right: -10px; }
+
+.forward-nav:hover img {
   margin-right: -3px; }
 
-.back-left:hover img {
+.backward-nav:hover img {
   margin-left: -3px; }
 
 .current-mod-stats {

@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
 import CircularProgressbar from 'react-circular-progressbar';
-import userSettings from '../containers/userSettings'
+import userSettings from '../containers/userSettings';
+import Navigation from './Navigation';
+
 
 class Home extends React.Component {
   constructor() {
@@ -11,9 +13,7 @@ class Home extends React.Component {
   render(){
     return(
       <div className='main-container'>
-        <Link to={'/'} className='back back-left'>
-          <img src='./imgs/left-arrow.svg' />
-        </Link>
+        <Navigation backward={true} route={'/'}/>
         <section className='main'>
         { this.props.username ? <h2>Hello {this.props.username}!</h2> : <h2>Please enter your github name on the previous screen</h2> }
           <section className='current-mod-stats'>
@@ -37,10 +37,8 @@ class Home extends React.Component {
             <h4>Followers</h4>
           </div>
         </section>
-        <Link to='/repos'
-          className='back back-right'>
-          <img src='./imgs/right-arrow.svg' />
-        </Link>
+        <Navigation forward={true} route={'/repos'}/>
+        
       </div>
     );
   }

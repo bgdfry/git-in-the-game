@@ -19,33 +19,33 @@
   z-index: 1;
 }
 
-.back {
+.navigation {
   @include center-items;
   @include screen-width-small(60px);
   background: $color-light;
   height: $screen-size-height-small;
 }
 
-.back-right {
-  margin-left: -10px;
-}
-
-.back-left {
-  margin-right: -10px;
-}
-
-.back:hover {
+.navigation:hover {
   background: $color-main-light;
   transition: 0.15s;
 }
 
-.back-right:hover {
+.forward-nav {
+  margin-left: -10px;
+}
+
+.backward-nav {
+  margin-right: -10px;
+}
+
+.forward-nav:hover {
   img {
     margin-right: -3px;
   }
 }
 
-.back-left:hover {
+.backward-nav:hover {
   img {
     margin-left: -3px;
   }

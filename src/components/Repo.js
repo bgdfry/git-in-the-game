@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import Navigation from './Navigation';
 import userSettings from '../containers/userSettings';
 
 class Repo extends React.Component {
@@ -10,9 +10,7 @@ class Repo extends React.Component {
   render(){
     return(
       <section className='main-container'>
-        <Link to={'/repos'} className='back back-left'>
-          <img src='./imgs/left-arrow.svg' />
-        </Link>
+        <Navigation backward={true} route={'/repos'}/>
         <section className='repo-container'>
           <section className='repo-info'>
             <section className='repo-title'>
