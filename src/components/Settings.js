@@ -4,10 +4,13 @@ import userSettings from '../containers/userSettings';
 import { Link } from 'react-router';
 import Navigation from './Navigation';
 
+const { ipcRenderer, remote } = require('electron');
+const mainProcess = remote.require('./main');
+
 class Settings extends React.Component {
 
   render() {
-    let input
+    let input;
     return (
       <section className="main-container">
         <section className='main'>
