@@ -14,7 +14,7 @@ class Repo extends React.Component {
         <section className='repo-container'>
           <section className='repo-info'>
             <section className='repo-title'>
-              <h3>REPO:<h1>{this.props.params.name}</h1></h3>
+              <h1>REPO:{this.props.params.name}</h1>
             </section>
             <section className='repo-stars'>
               <h3>3</h3>
