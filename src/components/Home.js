@@ -36,7 +36,8 @@ grabUserInfo() {
     this.getPushEvent(response);
     this.getOpenedPullRequests(response);
     this.getIssuesCreated(response);
-    this.getIssuesClosed(reponse);
+    this.getIssuesClosed(response);
+    this.getCommits();
    })
   .catch(() => { alert('Please try again.'); });
 }
@@ -55,20 +56,20 @@ getOpenedPullRequests(events) {
 getIssuesCreated(events) {
   const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
   const openedIssues = issues.filter((obj) => obj.payload.action==='opened');
-  this.setState({ openedIssues: openedIssues.length});
+  this.setState({ issuesCreated: openedIssues.length});
 }
 
 getIssuesClosed(events) {
   const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
   const closedIssues = issues.filter((obj) => obj.payload.action==='closed');
-  this.setState({ closedIssues: closedIssues.length });
+  this.setState({ issuesClosed: closedIssues.length });
 }
 
 getCommits() {
   const { pushEvents } = this.state;
   const commitLengths = pushEvents.map((obj) => obj.payload.commits.length);
   const reducedCommits = commitLengths.reduce((a, b) => a + b, 0);
-  return reducedCommits;
+  this.setState({ commits: reducedCommits});
 }
 
   render(){
