@@ -21,5 +21,5 @@ export const getEvents = (data) => {
     return {
       type: types.GET_EVENTS,
       data: data
-    }
-  }
+    };
+  };
