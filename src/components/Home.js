@@ -12,6 +12,10 @@ class Home extends React.Component {
     this.state = {
       events: null,
       pushEvents: null,
+      openedPullRequests: null,
+      issuesCreated: null,
+      issuesClosed: null,
+      commits: null
     };
 }
 
