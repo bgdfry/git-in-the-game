@@ -33,7 +33,8 @@ grabUserInfo() {
   })
   .then((res) => {return res.json(); })
   .then((response) => { this.setState({events: response});
-    this.getPushEvent(response); })
+    this.getPushEvent(response);
+    this.getOpenedPullRequests(response); })
   .catch(() => { alert('Please try again.'); });
 }
 
@@ -42,11 +43,10 @@ getPushEvent(events) {
   this.setState({ pushEvents: pushEv});
 }
 
-getOpenedPullRequests() {
-  const { events } = this.state;
+getOpenedPullRequests(events) {
   const pullReq = events.filter((ghEvent) => ghEvent.type==='PullRequestEvent');
   const openedPullRequests = pullReq.filter((obj) => obj.payload.action==='opened');
-  return openedPullRequests.length;
+  this.setState({ openedPullRequests: openedPullRequests.length });
 }
 
 getIssuesCreated() {
