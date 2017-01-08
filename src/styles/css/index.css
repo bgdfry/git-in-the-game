@@ -207,26 +207,28 @@ a {
     color: #D8D8D8; }
 
 .graph-buttons {
+  align-self: center;
   display: flex;
   height: 54px;
-  background: #eee;
   border-radius: 0px 5px;
-  width: 100%;
+  width: 80%;
   justify-content: space-between;
-  align-items: center; }
-  .graph-buttons li {
+  align-items: center;
+  color: #707070; }
+  .graph-buttons .graph-button {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 150px;
-    padding: 13px;
+    padding: 5px;
+    border-radius: 50px;
     font-family: "Roboto", sans-serif;
-    font-size: 14px;
-    color: #707070; }
-  .graph-buttons li:hover {
+    font-size: 14px; }
+  .graph-buttons .graph-button:hover {
     color: #D8D8D8; }
 
 .selected-graph {
-  background: red; }
+  background: #3d3d3d;
+  color: #D8D8D8; }
 
 /*# sourceMappingURL=index.css.map */

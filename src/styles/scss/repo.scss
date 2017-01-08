@@ -33,29 +33,30 @@
 }
 
 .graph-buttons {
+  align-self: center;
   display: flex;
   height: 54px;
-  background: #eee;
   border-radius: 0px 5px;
-  width: 100%;
+  width: 80%;
   justify-content: space-between;;
   align-items: center;
-  li {
+  color: $color-main;
+  .graph-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    // background: red;
     width: 150px;
-    padding: 13px;
+    padding: 5px;
+    border-radius: 50px;
     font-family: $font-main;
     font-size: 14px;
-    color: $color-main;
   }
-  li:hover{
+  .graph-button:hover{
     color: $color-light;
   }
 }
 
 .selected-graph {
-  background: red;
+  background: $color-main-dark;
+  color: $color-light;
 }

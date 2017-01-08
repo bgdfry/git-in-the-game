@@ -44,13 +44,13 @@ class Repo extends React.Component {
             })
           }
           <ul className='graph-buttons'>
-            <li className={commits ? 'selected-graph' : ''}
+            <li className={`graph-button ${commits ? 'selected-graph' : ''}`}
               onClick={() => this.toggleGraphView('commits')}
               >COMMITS</li>
-            <li className={issues ? 'selected-graph' : ''}
+            <li className={`graph-button ${issues ? 'selected-graph' : ''}`}
               onClick={() => this.toggleGraphView('issues')}
               >ISSUES</li>
-            <li className={pullRequests ? 'selected-graph' : ''}
+            <li className={`graph-button ${pullRequests ? 'selected-graph' : ''}`}
               onClick={() => this.toggleGraphView('pullRequests')}
               >PULL REQUESTS</li>
           </ul>
