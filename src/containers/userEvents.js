@@ -1,10 +1,15 @@
 import { connect } from 'react-redux';
-import { getEvents, getPushEvents } from '../actions/index';
+import {
+        getEvents,
+        getPushEvents,
+        getOpenedPullRequests,
+      } from '../actions/index';
 
 const mapStateToProps = (state) => {
  return {
    events: state.events,
-   pushEvents: state.pushEvents
+   pushEvents: state.pushEvents,
+   openedPullRequests: state.openedPullRequests,
  };
 };
 
@@ -15,6 +20,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     getPushEvents: (pushEvents) => {
       dispatch(getPushEvents(pushEvents));
+    },
+    getOpenedPullRequests: (openedPullRequests) => {
+      dispatch(getOpenedPullRequests(openedPullRequests));
     }
 
  };
