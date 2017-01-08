@@ -1,6 +1,7 @@
 const types = {
   USERNAME: 'USERNAME',
-  GET_EVENTS: 'GET_EVENTS'
+  GET_EVENTS: 'GET_EVENTS',
+  GET_PUSH_EVENT: 'GET_PUSH_EVENT',
 };
 
 export const submitUserName = (inputVal) => {
@@ -16,3 +17,11 @@ export const getEvents = (data) => {
       data: data
     };
   };
+
+
+  export const getPushEvent = (data) => {
+      return {
+        type: types.GET_PUSH_EVENT,
+        data: data
+      };
+    };
