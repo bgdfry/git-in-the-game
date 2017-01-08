@@ -30,7 +30,7 @@ grabUserInfo() {
 
 loadData(events) {
    this.props.getEvents(events);
-  //  this.getPushEvent(events);
+   this.getPushEvents(events);
 }
 
 getPushEvent(events) {
@@ -109,5 +109,7 @@ getCommits() {
 };
 
 export default userEvents(
-                userSettings(Home)
+                userPushEvents(
+                  userSettings(Home)
+                )
               );
