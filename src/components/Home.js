@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import CircularProgressbar from 'react-circular-progressbar';
 import userSettings from '../containers/userSettings';
 import userEvents from '../containers/userEvents';
+import userPushEvents from '../containers/userEvents';
 import Navigation from './Navigation';
 import helpers from './helpers';
 
@@ -24,42 +25,47 @@ grabUserInfo() {
     method: 'GET'
   })
   .then((res) => {return res.json(); })
-  .then((response) => this.props.getEvents(response))
+  .then((response) => this.loadData(response))
   .catch(() => { alert('Please try again.'); });
 }
 
-getPushEvent() {
-  const { events } = this.state;
-  const pushEv = events.filter((ghEvent) => ghEvent.type==='PushEvent');
-  this.setState({ pushEvents: pushEv});
+loadData(events) {
+   this.props.getEvents(events);
+   this.getPushEvents(events);
+   this.getOpenedPullRequests(events);
+   this.getIssuesCreated(events);
+   this.getIssuesClosed(events);
+   this.getCommits(events);
 }
 
-getOpenedPullRequests() {
-  const { events } = this.state;
+getPushEvents(events) {
+  const pushEv = events.filter((ghEvent) => ghEvent.type==='PushEvent');
+  this.props.getPushEvents(pushEv);
+}
+
+getOpenedPullRequests(events) {
   const pullReq = events.filter((ghEvent) => ghEvent.type==='PullRequestEvent');
   const openedPullRequests = pullReq.filter((obj) => obj.payload.action==='opened');
-  return openedPullRequests.length;
+  this.props.getOpenedPullRequests(openedPullRequests);
 }
 
-getIssuesCreated() {
-  const { events } = this.state;
+getIssuesCreated(events) {
   const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
   const openedIssues = issues.filter((obj) => obj.payload.action==='opened');
-  return openedIssues.length;
+  this.props.getIssuesCreated(openedIssues);
 }
 
-getIssuesClosed() {
-  const { events } = this.state;
+getIssuesClosed(events) {
   const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
   const closedIssues = issues.filter((obj) => obj.payload.action==='closed');
-  return closedIssues.length;
+  this.props.getIssuesClosed(closedIssues);
 }
 
 getCommits() {
-  const { pushEvents } = this.state;
+  const { pushEvents } = this.props;
   const commitLengths = pushEvents.map((obj) => obj.payload.commits.length);
   const reducedCommits = commitLengths.reduce((a, b) => a + b, 0);
-  return reducedCommits;
+  this.props.getCommits(reducedCommits);
 }
 
   render(){
@@ -91,7 +97,7 @@ getCommits() {
             onClick={() => this.grabUserInfo()}
             >fetch</button>
             <button
-            onClick={() => console.log(this.props.events) }
+            onClick={() => console.log(this.props) }
             >log</button>
             <button
             onClick={() => this.getIssuesClosed() }
@@ -105,5 +111,5 @@ getCommits() {
 };
 
 export default userEvents(
-                userSettings(Home)
+                  userSettings(Home)
               );
