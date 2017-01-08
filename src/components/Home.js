@@ -65,7 +65,7 @@ getCommits() {
   const { pushEvents } = this.props;
   const commitLengths = pushEvents.map((obj) => obj.payload.commits.length);
   const reducedCommits = commitLengths.reduce((a, b) => a + b, 0);
-  this.props.getCommits(commits);
+  this.props.getCommits(reducedCommits);
 }
 
   render(){
