@@ -28,6 +28,9 @@ class Settings extends React.Component {
               <button children='Submit' />
             </section>
           </form>
+          <button className='mod-form'
+            onClick={ mainProcess.clearUserName() }
+          >Logout</button>
           </section>
         <Navigation forward={true} route={'/home'}/>
       </section>

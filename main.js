@@ -32,11 +32,16 @@ const retrieveStorage = () => {
 };
 
 const sendGithubData = (data) => {
+  console.log(data);
   mb.window.webContents.send('retrievedGithubData', data);
 };
 
 const saveUsername = exports.saveUsername = (usernameData) => {
   storage.set('saved-github-data', usernameData);
+};
+
+const clearUserName = exports.clearUserName = () => {
+  storage.set('saved-github-data', defaultData);
 };
 
 const defaultData = { username: null };
