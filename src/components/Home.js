@@ -5,6 +5,7 @@ import userSettings from '../containers/userSettings';
 import userEvents from '../containers/userEvents';
 import Navigation from './Navigation';
 import helpers from './helpers';
+import moment from 'moment';
 
 
 class Home extends React.Component {
@@ -19,13 +20,33 @@ goToRepos() {
   this.context.router.push('/repos');
 }
 
-grabUserInfo() {
-  fetch(`https://api.github.com/users/bcgodfrey91/events?page=0&callback`, {
-    method: 'GET'
-  })
-  .then((res) => {return res.json(); })
-  .then((response) => this.props.getEvents(response))
-  .catch(() => { alert('Please try again.'); });
+
+getThisWeeksEvents(arr) {
+  arr.filter(e => {
+    return  moment.utc(e.created_at).year() == moment.utc(new Date()).year() &&
+            moment.utc(e.created_at).isoWeek() == moment.utc(new Date()).isoWeek();
+  });
+}
+//
+// componentDidMount(){
+//   this.filterThisWeeksEvents(helpers);
+// }
+
+// grabUserInfo() {
+//   fetch(`https://api.github.com/users/bcgodfrey91/events?page=0&callback`, {
+//     method: 'GET'
+//   })
+//   .then((res) => {return res.json(); })
+//   .then((response) => this.props.getEvents(response))
+//   .catch(() => { alert('Please try again.'); });
+// }
+
+grabUserInfo(page = 0, user = 'bcgodfrey91') {
+  fetch(`https://api.github.com/users/${user}/events?page=${page}&callback`)
+    .then(res => res.json())
+    .then(response => this.props.getEvents(response))
+    .then(page < 10 ? this.grabUserInfo(page + 1, user) : null)
+    .catch(() => alert('Please try again.'));
 }
 
 getPushEvent() {
