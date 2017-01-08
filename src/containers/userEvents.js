@@ -4,6 +4,7 @@ import {
         getPushEvents,
         getOpenedPullRequests,
         getIssuesCreated,
+        getIssuesClosed
       } from '../actions/index';
 
 const mapStateToProps = (state) => {
@@ -12,6 +13,7 @@ const mapStateToProps = (state) => {
    pushEvents: state.pushEvents,
    openedPullRequests: state.openedPullRequests,
    issuesCreated: state.issuesCreated,
+   issuesClosed: state.issuesClosed,
  };
 };
 
@@ -28,6 +30,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     getIssuesCreated: (issuesCreated) => {
       dispatch(getIssuesCreated(issuesCreated));
+    },
+    getIssuesClosed: (issuesClosed) => {
+      dispatch(getIssuesClosed(issuesClosed));
     }
 
  };
