@@ -33,6 +33,7 @@ loadData(events) {
    this.props.getEvents(events);
    this.getPushEvents(events);
    this.getOpenedPullRequests(events);
+   this.getIssuesCreated(events);
 }
 
 getPushEvents(events) {
@@ -46,11 +47,10 @@ getOpenedPullRequests(events) {
   this.props.getOpenedPullRequests(openedPullRequests);
 }
 
-getIssuesCreated() {
-  const { events } = this.state;
+getIssuesCreated(events) {
   const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
   const openedIssues = issues.filter((obj) => obj.payload.action==='opened');
-  return openedIssues.length;
+  this.props.getIssuesCreated(openedIssues);
 }
 
 getIssuesClosed() {
