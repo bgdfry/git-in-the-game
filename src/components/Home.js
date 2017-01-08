@@ -34,6 +34,7 @@ loadData(events) {
    this.getPushEvents(events);
    this.getOpenedPullRequests(events);
    this.getIssuesCreated(events);
+   this.getIssuesClosed(events);
 }
 
 getPushEvents(events) {
@@ -53,11 +54,10 @@ getIssuesCreated(events) {
   this.props.getIssuesCreated(openedIssues);
 }
 
-getIssuesClosed() {
-  const { events } = this.state;
+getIssuesClosed(events) {
   const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
   const closedIssues = issues.filter((obj) => obj.payload.action==='closed');
-  return closedIssues.length;
+  this.props.getIssuesCreated(closedIssues);
 }
 
 getCommits() {
