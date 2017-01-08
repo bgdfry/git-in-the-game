@@ -4,6 +4,7 @@ const types = {
   GET_PUSH_EVENTS: 'GET_PUSH_EVENTS',
   GET_OPENED_PULL_REQUESTS: 'GET_OPENED_PULL_REQUESTS',
   GET_ISSUES_CREATED: 'GET_ISSUES_CREATED',
+  GET_ISSUES_CLOSED: 'GET_ISSUES_CLOSED',
 };
 
 export const submitUserName = (inputVal) => {
@@ -38,6 +39,13 @@ export const getOpenedPullRequests = (data) => {
 export const getIssuesCreated = (data) => {
     return {
       type: types.GET_ISSUES_CREATED,
+      data: data
+    };
+  };
+
+export const getIssuesClosed = (data) => {
+    return {
+      type: types.GET_ISSUES_CLOSED,
       data: data
     };
   };
