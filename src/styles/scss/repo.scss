@@ -1,17 +1,21 @@
 .repo-container {
-  padding: 30px 25px 0px 25px;
+  display: flex;
+  flex-direction: column;
+  // padding: 30px 25px 0px 25px;
   border-radius: 5px;
   width: 100%;
   z-index: 1;
   background: white;
 }
-.repo-info {
+.repo-header {
   display: flex;
+  padding: 0px;
   width: 100%;
   align-items: center;
 }
 .repo-title {
   flex: 1;
+  padding: 20px 0px 0px 20px;
   h1, h3 {
     padding-left: 10px;
     display: inline-flex;
@@ -21,9 +25,37 @@
 .repo-stars {
   display: flex;
   h3, img {
-    color: $color-light;
     display: inline-flex;
     align-items: center;
     padding-right: 10px;
+    color: $color-light;
   }
+}
+
+.graph-buttons {
+  display: flex;
+  height: 54px;
+  background: #eee;
+  border-radius: 0px 5px;
+  width: 100%;
+  justify-content: space-between;;
+  align-items: center;
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background: red;
+    width: 150px;
+    padding: 13px;
+    font-family: $font-main;
+    font-size: 14px;
+    color: $color-main;
+  }
+  li:hover{
+    color: $color-light;
+  }
+}
+
+.selected-graph {
+  background: red;
 }

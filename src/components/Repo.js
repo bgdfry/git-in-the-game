@@ -7,14 +7,27 @@ import LineGraph from './LineGraph';
 class Repo extends React.Component {
   constructor() {
     super();
+    this.state = {
+      commits: true,
+      issues: false,
+      pullRequests: false
+    };
+  }
+
+  toggleGraphView(graph){
+    debugger;
+    const view = graph;
+    this.setState({commits: false, issues: false, pullRequests: false});
+    this.setState({[view]: true});
   }
 
   render(){
+    const { commits, issues, pullRequests } = this.state;
     return(
       <section className='main-container'>
         <Navigation backward={true} route={'/repos'}/>
         <section className='repo-container'>
-          <section className='repo-info'>
+          <section className='repo-header'>
             <section className='repo-title'>
               <h1>REPO:{this.props.params.name}</h1>
             </section>
@@ -23,15 +36,24 @@ class Repo extends React.Component {
               <img src='./imgs/star.svg' />
             </section>
           </section>
-
           { LineGraph({
-              labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], 
+              labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
               currentWeekData: [12, 10, 25, 14, 1, 2, 0],
               previousWeekData: [8, 12, 28, 11, 10, 6, 2],
-              title: 'Commits Last Week'
+              title: 'Commits This Week VS Last Week'
             })
           }
-
+          <ul className='graph-buttons'>
+            <li className={commits ? 'selected-graph' : ''}
+              onClick={() => this.toggleGraphView('commits')}
+              >COMMITS</li>
+            <li className={issues ? 'selected-graph' : ''}
+              onClick={() => this.toggleGraphView('issues')}
+              >ISSUES</li>
+            <li className={pullRequests ? 'selected-graph' : ''}
+              onClick={() => this.toggleGraphView('pullRequests')}
+              >PULL REQUESTS</li>
+          </ul>
         </section>
       </section>
     );
@@ -39,4 +61,3 @@ class Repo extends React.Component {
 };
 
 export default userSettings(Repo);
-

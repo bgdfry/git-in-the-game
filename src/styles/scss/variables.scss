@@ -18,6 +18,7 @@ $font-main: 'Roboto', sans-serif;
 
 $screen-size-height-small: 300px;
 $screen-size-width-small: 600px;
+$inner-component-width: 540px;
 @mixin screen-width-small($width) {
   width: $width;
 }

@@ -177,19 +177,22 @@ a {
     padding-right: 5px; }
 
 .repo-container {
-  padding: 30px 25px 0px 25px;
+  display: flex;
+  flex-direction: column;
   border-radius: 5px;
   width: 100%;
   z-index: 1;
   background: white; }
 
-.repo-info {
+.repo-header {
   display: flex;
+  padding: 0px;
   width: 100%;
   align-items: center; }
 
 .repo-title {
-  flex: 1; }
+  flex: 1;
+  padding: 20px 0px 0px 20px; }
   .repo-title h1, .repo-title h3 {
     padding-left: 10px;
     display: inline-flex;
@@ -198,9 +201,32 @@ a {
 .repo-stars {
   display: flex; }
   .repo-stars h3, .repo-stars img {
-    color: #D8D8D8;
     display: inline-flex;
     align-items: center;
-    padding-right: 10px; }
+    padding-right: 10px;
+    color: #D8D8D8; }
+
+.graph-buttons {
+  display: flex;
+  height: 54px;
+  background: #eee;
+  border-radius: 0px 5px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center; }
+  .graph-buttons li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    padding: 13px;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    color: #707070; }
+  .graph-buttons li:hover {
+    color: #D8D8D8; }
+
+.selected-graph {
+  background: red; }
 
 /*# sourceMappingURL=index.css.map */
