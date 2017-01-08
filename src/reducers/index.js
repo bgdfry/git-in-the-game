@@ -5,6 +5,7 @@ import pushEvents from './pushEvents';
 import openedPullRequests from './openedPullRequests';
 import issuesCreated from './issuesCreated';
 import issuesClosed from './issuesClosed';
+import commits from './commits';
 
 export const rootReducer = combineReducers({
   username,
@@ -13,6 +14,7 @@ export const rootReducer = combineReducers({
   openedPullRequests,
   issuesCreated,
   issuesClosed,
+  commits,
 });
 
 export default rootReducer;
