@@ -32,9 +32,7 @@ const retrieveStorage = () => {
 };
 
 const sendGithubData = (data) => {
-  console.log(data);
-  // console.log(mb.window.webContents);
-  // mb.window.webContents.send('retrievedGithubData', data);
+  mb.window.webContents.send('retrievedGithubData', data);
 };
 
 const saveUsername = exports.saveUsername = (usernameData) => {
