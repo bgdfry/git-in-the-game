@@ -1,21 +1,21 @@
 /*
 Error: Undefined variable: "$color-light".
-        on line 30 of ./src/styles/scss/repo.scss
+        on line 29 of ./src/styles/scss/repo.scss
 
-25:   display: flex;
-26:   h3, img {
-27:     display: inline-flex;
-28:     align-items: center;
-29:     padding-right: 10px;
-30:     color: $color-light;
-31:   }
-32: }
-33: .repo-chart {
-34:   display: flex;
-35:   align-self: center;
+24:   display: flex;
+25:   h3, img {
+26:     display: inline-flex;
+27:     align-items: center;
+28:     padding-right: 10px;
+29:     color: $color-light;
+30:   }
+31: }
+32: .repo-chart {
+33:   display: flex;
+34:   align-self: center;
 
 Backtrace:
-./src/styles/scss/repo.scss:30
+./src/styles/scss/repo.scss:29
 /Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/script/tree/variable.rb:49:in `_perform'
 /Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/script/tree/node.rb:58:in `perform'
 /Users/blakeworsley/.rvm/gems/ruby-2.3.0@global/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:397:in `visit_prop'
@@ -76,4 +76,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$color-light\".\A         on line 30 of ./src/styles/scss/repo.scss\A \A 25:   display: flex;\A 26:   h3, img {\A 27:     display: inline-flex;\A 28:     align-items: center;\A 29:     padding-right: 10px;\A 30:     color: $color-light;\A 31:   }\A 32: }\A 33: .repo-chart {\A 34:   display: flex;\A 35:   align-self: center;"; }
+  content: "Error: Undefined variable: \"$color-light\".\A         on line 29 of ./src/styles/scss/repo.scss\A \A 24:   display: flex;\A 25:   h3, img {\A 26:     display: inline-flex;\A 27:     align-items: center;\A 28:     padding-right: 10px;\A 29:     color: $color-light;\A 30:   }\A 31: }\A 32: .repo-chart {\A 33:   display: flex;\A 34:   align-self: center;"; }
