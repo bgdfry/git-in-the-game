@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
-import { getEvents } from '../actions/index';
+import { getEvents, getPushEvents } from '../actions/index';
 
 const mapStateToProps = (state) => {
  return {
-   events: state.events
+   events: state.events,
+   pushEvents: state.pushEvents
  };
 };
 
@@ -11,6 +12,9 @@ const mapDispatchToProps = (dispatch) => {
  return {
    getEvents: (events) => {
       dispatch(getEvents(events));
+    },
+    getPushEvents: (pushEvents) => {
+      dispatch(getPushEvents(pushEvents));
     }
  };
 };

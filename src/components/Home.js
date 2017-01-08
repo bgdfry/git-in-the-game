@@ -24,23 +24,18 @@ grabUserInfo() {
     method: 'GET'
   })
   .then((res) => {return res.json(); })
-  .then((response) => this.props.getEvents(response))
+  .then((response) => this.props.loadData(response))
   .catch(() => { alert('Please try again.'); });
 }
 
-loadEvents(events) {
+loadData(events) {
    this.props.getEvents(events);
-   this.props.getPushEvent(events);
-   this.props.getOpenedPullRequests(events);
-   this.props.getIssuesCreated(events);
-   this.props.getIssuesClosed(events);
-   this.props.getCommits();
+   this.getPushEvent(events);
 }
 
-getPushEvent() {
-  const { events } = this.state;
+getPushEvent(events) {
   const pushEv = events.filter((ghEvent) => ghEvent.type==='PushEvent');
-  this.setState({ pushEvents: pushEv});
+  this.props.getPushEvent(pushEv);
 }
 
 getOpenedPullRequests() {
@@ -100,7 +95,7 @@ getCommits() {
             onClick={() => this.grabUserInfo()}
             >fetch</button>
             <button
-            onClick={() => console.log(this.props.events) }
+            onClick={() => console.log(this.props) }
             >log</button>
             <button
             onClick={() => this.getIssuesClosed() }
