@@ -18,6 +18,7 @@ $font-main: 'Roboto', sans-serif;
 
 $screen-size-height-small: 300px;
 $screen-size-width-small: 600px;
+$inner-component-width: 540px;
 @mixin screen-width-small($width) {
   width: $width;
 }
@@ -30,7 +31,6 @@ $screen-size-width-small: 600px;
   align-items: center;
 }
 
-
 // HEADINGS
 
 h1 {
@@ -42,19 +42,19 @@ h1 {
 h2 {
   font-family: $font-main;
   font-size: 18px;
-  color: $color-main;  
+  color: $color-main;
 }
 
 h3 {
   font-family: $font-main;
   font-size: 14px;
-  color: $color-main;  
+  color: $color-main;
 }
 
 h4 {
   font-family: $font-main;
   font-size: 10px;
-  color: $color-main;  
+  color: $color-main;
 }
 
 input {
