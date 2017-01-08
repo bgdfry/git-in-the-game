@@ -15,13 +15,18 @@ class Repo extends React.Component {
   }
 
   toggleGraphView(graph){
-    debugger;
     const view = graph;
     this.setState({commits: false, issues: false, pullRequests: false});
     this.setState({[view]: true});
   }
 
   render(){
+    let graphData = {
+      labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      currentWeekData: [12, 10, 25, 14, 1, 2, 0],
+      previousWeekData: [8, 12, 28, 11, 10, 6, 2],
+      title: 'Commits This Week VS Last Week'
+    };
     const { commits, issues, pullRequests } = this.state;
     return(
       <section className='main-container'>
@@ -36,13 +41,9 @@ class Repo extends React.Component {
               <img src='./imgs/star.svg' />
             </section>
           </section>
-          { LineGraph({
-              labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-              currentWeekData: [12, 10, 25, 14, 1, 2, 0],
-              previousWeekData: [8, 12, 28, 11, 10, 6, 2],
-              title: 'Commits This Week VS Last Week'
-            })
-          }
+          <section className='repo-chart'>
+            { LineGraph(graphData) }
+          </section>
           <ul className='graph-buttons'>
             <li className={`graph-button ${commits ? 'selected-graph' : ''}`}
               onClick={() => this.toggleGraphView('commits')}

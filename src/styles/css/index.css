@@ -186,13 +186,12 @@ a {
 
 .repo-header {
   display: flex;
-  padding: 0px;
-  width: 100%;
-  align-items: center; }
+  padding: 20px 0px;
+  width: 90%;
+  align-self: center; }
 
 .repo-title {
-  flex: 1;
-  padding: 20px 0px 0px 20px; }
+  flex: 1; }
   .repo-title h1, .repo-title h3 {
     padding-left: 10px;
     display: inline-flex;
@@ -206,12 +205,18 @@ a {
     padding-right: 10px;
     color: #D8D8D8; }
 
+.repo-chart {
+  display: flex;
+  align-self: center;
+  height: 160px;
+  width: 90%;
+  padding: 0px 0px 20px 0px; }
+
 .graph-buttons {
   align-self: center;
+  padding: 10px 0px;
   display: flex;
-  height: 54px;
-  border-radius: 0px 5px;
-  width: 80%;
+  width: 85%;
   justify-content: space-between;
   align-items: center;
   color: #707070; }
@@ -219,8 +224,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 150px;
-    padding: 5px;
+    padding: 10px 25px;
     border-radius: 50px;
     font-family: "Roboto", sans-serif;
     font-size: 14px; }
