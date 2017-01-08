@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import CircularProgressbar from 'react-circular-progressbar';
 import userSettings from '../containers/userSettings';
 import userEvents from '../containers/userEvents';
+import userPushEvents from '../containers/userEvents';
 import Navigation from './Navigation';
 import helpers from './helpers';
 
@@ -33,9 +34,9 @@ loadData(events) {
    this.getPushEvents(events);
 }
 
-getPushEvent(events) {
+getPushEvents(events) {
   const pushEv = events.filter((ghEvent) => ghEvent.type==='PushEvent');
-  this.props.getPushEvent(pushEv);
+  this.props.getPushEvents(pushEv);
 }
 
 getOpenedPullRequests() {
@@ -109,7 +110,5 @@ getCommits() {
 };
 
 export default userEvents(
-                userPushEvents(
                   userSettings(Home)
-                )
               );
