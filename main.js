@@ -13,7 +13,6 @@ mb.on('ready', () => {
 
 mb.on('after-create-window', () => {
   mb.window.loadURL(`file://${__dirname}/src/index.html`);
-  mb.window.webContents.browserWindowOptions.resizable = false;
 });
 
 const doesStorageExist = () => {
