@@ -2,6 +2,7 @@ const types = {
   USERNAME: 'USERNAME',
   GET_EVENTS: 'GET_EVENTS',
   GET_PUSH_EVENTS: 'GET_PUSH_EVENTS',
+  GET_OPENED_PULL_REQUESTS: 'GET_OPENED_PULL_REQUESTS',
 };
 
 export const submitUserName = (inputVal) => {
@@ -25,3 +26,10 @@ export const getEvents = (data) => {
         data: data
       };
     };
+
+    export const getOpenedPullRequests = (data) => {
+        return {
+          type: types.GET_OPENED_PULL_REQUESTS,
+          data: data
+        };
+      };
