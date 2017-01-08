@@ -32,6 +32,7 @@ grabUserInfo() {
 loadData(events) {
    this.props.getEvents(events);
    this.getPushEvents(events);
+   this.getOpenedPullRequests(events);
 }
 
 getPushEvents(events) {
@@ -39,11 +40,10 @@ getPushEvents(events) {
   this.props.getPushEvents(pushEv);
 }
 
-getOpenedPullRequests() {
-  const { events } = this.state;
+getOpenedPullRequests(events) {
   const pullReq = events.filter((ghEvent) => ghEvent.type==='PullRequestEvent');
   const openedPullRequests = pullReq.filter((obj) => obj.payload.action==='opened');
-  return openedPullRequests.length;
+  this.props.getOpenedPullRequests(openedPullRequests);
 }
 
 getIssuesCreated() {
