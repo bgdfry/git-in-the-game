@@ -28,6 +28,15 @@ grabUserInfo() {
   .catch(() => { alert('Please try again.'); });
 }
 
+loadEvents(events) {
+   this.props.getEvents(events);
+   this.props.getPushEvent(events);
+   this.props.getOpenedPullRequests(events);
+   this.props.getIssuesCreated(events);
+   this.props.getIssuesClosed(events);
+   this.props.getCommits();
+}
+
 getPushEvent() {
   const { events } = this.state;
   const pushEv = events.filter((ghEvent) => ghEvent.type==='PushEvent');
