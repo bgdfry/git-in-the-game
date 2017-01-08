@@ -16,6 +16,7 @@ const mapDispatchToProps = (dispatch) => {
     getPushEvents: (pushEvents) => {
       dispatch(getPushEvents(pushEvents));
     }
+
  };
 };
 

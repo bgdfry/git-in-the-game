@@ -24,13 +24,13 @@ grabUserInfo() {
     method: 'GET'
   })
   .then((res) => {return res.json(); })
-  .then((response) => this.props.loadData(response))
+  .then((response) => this.loadData(response))
   .catch(() => { alert('Please try again.'); });
 }
 
 loadData(events) {
    this.props.getEvents(events);
-   this.getPushEvent(events);
+  //  this.getPushEvent(events);
 }
 
 getPushEvent(events) {
