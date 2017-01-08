@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
    events: state.events,
    pushEvents: state.pushEvents,
    openedPullRequests: state.openedPullRequests,
-   issuesCreated: issuesCreated,
+   issuesCreated: state.issuesCreated,
  };
 };
 
@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(getOpenedPullRequests(openedPullRequests));
     },
     getIssuesCreated: (issuesCreated) => {
-      dispatch(getOpenedPullRequests(issuesCreated));
+      dispatch(getIssuesCreated(issuesCreated));
     }
 
  };
