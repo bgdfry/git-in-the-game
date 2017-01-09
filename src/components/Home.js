@@ -18,7 +18,7 @@ goToRepos() {
 }
 
 grabUserInfo() {
-  fetch(`https://api.github.com/users/bcgodfrey91/events?page=0&callback`, {
+  fetch(`https://api.github.com/users/kylem038/events?page=0&callback`, {
     method: 'GET'
   })
   .then((res) => {return res.json(); })
@@ -28,7 +28,6 @@ grabUserInfo() {
 
 loadData(events) {
    this.props.getEvents(events);
-   this.getOpenedPullRequests(events);
    this.getIssuesCreated(events);
    this.getIssuesClosed(events);
    this.getCommits(events);
@@ -91,7 +90,7 @@ getCommits() {
             onClick={() => console.log(this.props.events) }
             >log</button>
             <button
-            onClick={() => console.log(this.props.pullRequests) }
+            onClick={() => console.log(this.props.issues) }
             >commits</button>
           </div>
         </section>

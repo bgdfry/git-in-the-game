@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import {
         getEvents,
-        getPushEvents,
         getOpenedPullRequests,
         getIssuesCreated,
         getIssuesClosed,
@@ -14,6 +13,7 @@ const mapStateToProps = (state) => {
    events: events,
    pushEvents: events.filter((ghEvent) => ghEvent.type==='PushEvent'),
    pullRequests: events.filter((ghEvent) => ghEvent.type==='PullRequestEvent'),
+   issues: events.filter((ghEvent) => ghEvent.type==='IssuesEvent'),
    openedPullRequests: state.openedPullRequests,
    issuesCreated: state.issuesCreated,
    issuesClosed: state.issuesClosed,
@@ -25,9 +25,6 @@ const mapDispatchToProps = (dispatch) => {
  return {
    getEvents: (events) => {
       dispatch(getEvents(events));
-    },
-    getPushEvents: (pushEvents) => {
-      dispatch(getPushEvents(pushEvents));
     },
     getOpenedPullRequests: (openedPullRequests) => {
       dispatch(getOpenedPullRequests(openedPullRequests));
