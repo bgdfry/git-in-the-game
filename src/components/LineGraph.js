@@ -1,7 +1,14 @@
 import React from 'react';
 const LineChart = require('react-chartjs-2').Line;
+import UserEvents from '../containers/userEvents';
 
 const LineGraph = ({ currentWeekData, previousWeekData, labels, title }) => {
+  //
+  // const { pushEvents } = this.state;
+  // const commitLengths = pushEvents.map((obj) => obj.payload.commits.length);
+  // const allCommits = commitLengths.reduce((a, b) => a + b, 0);
+  // console.log(allCommits);
+
   let chartData = {
     labels: labels,
     datasets: [{
@@ -47,4 +54,4 @@ let chartOptions = {
   );
 }
 
-export default LineGraph;
+export default UserEvents(LineGraph);

@@ -27,60 +27,78 @@ getThisWeeksEvents(arr) {
             moment.utc(e.created_at).isoWeek() == moment.utc(new Date()).isoWeek();
   });
 }
-//
-// componentDidMount(){
-//   this.filterThisWeeksEvents(helpers);
-// }
 
-// grabUserInfo() {
-//   fetch(`https://api.github.com/users/bcgodfrey91/events?page=0&callback`, {
-//     method: 'GET'
-//   })
-//   .then((res) => {return res.json(); })
-//   .then((response) => this.props.getEvents(response))
-//   .catch(() => { alert('Please try again.'); });
-// }
-
-grabUserInfo(page = 0, user = 'bcgodfrey91') {
+grabUserInfo(page = 0, user = this.props.username) {
   fetch(`https://api.github.com/users/${user}/events?page=${page}&callback`)
     .then(res => res.json())
     .then(response => this.props.getEvents(response))
     .then(page < 10 ? this.grabUserInfo(page + 1, user) : null)
+    .then(() => this.getPushEvent())
+    .then(() => this.getCommits())
     .catch(() => alert('Please try again.'));
 }
 
 getPushEvent() {
-  const { events } = this.state;
+  const { events } = this.props;
   const pushEv = events.filter((ghEvent) => ghEvent.type==='PushEvent');
   this.setState({ pushEvents: pushEv});
 }
 
 getOpenedPullRequests() {
-  const { events } = this.state;
+  const { events } = this.props;
   const pullReq = events.filter((ghEvent) => ghEvent.type==='PullRequestEvent');
   const openedPullRequests = pullReq.filter((obj) => obj.payload.action==='opened');
   return openedPullRequests.length;
 }
 
 getIssuesCreated() {
-  const { events } = this.state;
+  const { events } = this.props;
   const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
   const openedIssues = issues.filter((obj) => obj.payload.action==='opened');
   return openedIssues.length;
 }
 
 getIssuesClosed() {
-  const { events } = this.state;
+  const { events } = this.props;
   const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
   const closedIssues = issues.filter((obj) => obj.payload.action==='closed');
   return closedIssues.length;
 }
 
 getCommits() {
+  this.getPushEvent();
   const { pushEvents } = this.state;
   const commitLengths = pushEvents.map((obj) => obj.payload.commits.length);
   const reducedCommits = commitLengths.reduce((a, b) => a + b, 0);
-  return reducedCommits;
+  console.log(reducedCommits);
+}
+
+// sortCommitsByDay(pushEvents) {
+//   let arr = [0,0,0,0,0,0,0];
+//   pushEvents.map(e => {
+//     if(e.payload.commits){
+//         arr[moment(e.created_at).isoWeekday() - 1] += e.payload.commits.length;
+//         return arr;
+//     } else {
+//       return
+//     }
+//   });
+//   return arr
+// }
+
+sortCommitsByDay(pushEvents) {
+  let arr = [0,0,0,0,0,0,0];
+  pushEvents.map(e => {
+    return e.payload.commits ?
+      arr[moment(e.created_at).isoWeekday() - 1] += e.payload.commits.length : null
+  });
+  return arr
+}
+
+componentDidMount(){
+  console.log(
+    this.sortCommitsByDay(helpers)
+  );
 }
 
   render(){
@@ -115,7 +133,7 @@ getCommits() {
             onClick={() => console.log(this.props.events) }
             >log</button>
             <button
-            onClick={() => this.getIssuesClosed() }
+            onClick={() => this.getCommits() }
             >commits</button>
           </div>
         </section>
