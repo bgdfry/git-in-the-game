@@ -29,7 +29,7 @@ grabUserInfo() {
   render(){
     return(
       <div className='main-container'>
-          <Navigation backward={true} route={'/'} />
+        <Navigation backward={true} route={'/'} />
         <section className='main'>
         { this.props.username ? <h2>Hello {this.props.username}!</h2> : <h2>Please enter your github name on the previous screen</h2> }
           <section className='current-mod-stats'>
