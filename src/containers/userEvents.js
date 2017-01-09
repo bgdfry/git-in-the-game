@@ -6,10 +6,10 @@ import {
         getCommits,
       } from '../actions/index';
 
-const getOpenedPullRequests = (events) => {
+const getPullRequestByType = (events, prType) => {
   const pullReq = events.filter((ghEvent) => ghEvent.type==='PullRequestEvent');
-  const openedPullRequests = pullReq.filter((obj) => obj.payload.action==='opened');
-  return openedPullRequests
+  const listOfPullRequests = pullReq.filter((obj) => obj.payload.action===`${prType}`);
+  return listOfPullRequests
 }
 
 const getIssueByType = (events, issueType) => {
@@ -25,7 +25,7 @@ const mapStateToProps = (state) => {
    pushEvents: events.filter((ghEvent) => ghEvent.type==='PushEvent'),
    pullRequests: events.filter((ghEvent) => ghEvent.type==='PullRequestEvent'),
    issues: events.filter((ghEvent) => ghEvent.type==='IssuesEvent'),
-   openedPullRequests: getOpenedPullRequests(events),
+   openedPullRequests: getPullRequestByType(events, 'opened'),
    issuesCreated: getIssueByType(events, 'opened'),
    issuesClosed: getIssueByType(events, 'closed'),
    commits: state.commits,
