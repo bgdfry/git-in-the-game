@@ -1,7 +1,5 @@
 import { connect } from 'react-redux';
-import {
-        getEvents,
-      } from '../actions/index';
+import { getEvents } from '../actions/index';
 
 const getPullRequestByType = (events, prType) => {
   const pullReq = events.filter((ghEvent) => ghEvent.type==='PullRequestEvent');
