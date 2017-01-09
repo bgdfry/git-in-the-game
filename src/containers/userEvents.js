@@ -37,20 +37,7 @@ const mapDispatchToProps = (dispatch) => {
  return {
    getEvents: (events) => {
       dispatch(getEvents(events));
-    },
-    getOpenedPullRequests: (openedPullRequests) => {
-      dispatch(getOpenedPullRequests(openedPullRequests));
-    },
-    getIssuesCreated: (issuesCreated) => {
-      dispatch(getIssuesCreated(issuesCreated));
-    },
-    getIssuesClosed: (issuesClosed) => {
-      dispatch(getIssuesClosed(issuesClosed));
-    },
-    getCommits: (commits) => {
-      dispatch(getCommits(commits));
     }
-
  };
 };
 
