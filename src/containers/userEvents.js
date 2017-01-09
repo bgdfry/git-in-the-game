@@ -1,21 +1,34 @@
 import { connect } from 'react-redux';
-import {
-        getEvents,
-        getPushEvents,
-        getOpenedPullRequests,
-        getIssuesCreated,
-        getIssuesClosed,
-        getCommits,
-      } from '../actions/index';
+import { getEvents } from '../actions/index';
+
+const getPullRequestByType = (events, prType) => {
+  const pullReq = events.filter((ghEvent) => ghEvent.type==='PullRequestEvent');
+  const listOfPullRequests = pullReq.filter((obj) => obj.payload.action===`${prType}`);
+  return listOfPullRequests
+}
+
+const getIssueByType = (events, issueType) => {
+  const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
+  const listOfIssues = issues.filter((obj) => obj.payload.action===`${issueType}`);
+  return listOfIssues
+}
+
+const getAllCommits = (events) => {
+  const pushEvents = events.filter((ghEvent) => ghEvent.type==='PushEvent')
+  const allCommits = pushEvents.map((obj) => obj.payload.commits.length);
+  return allCommits
+}
+
 
 const mapStateToProps = (state) => {
+ const { events } = state
  return {
-   events: state.events,
-   pushEvents: state.pushEvents,
-   openedPullRequests: state.openedPullRequests,
-   issuesCreated: state.issuesCreated,
-   issuesClosed: state.issuesClosed,
-   commits: state.commits,
+   events: events,
+   openedPullRequests: getPullRequestByType(events, 'opened'),
+   issuesCreated: getIssueByType(events, 'opened'),
+   issuesClosed: getIssueByType(events, 'closed'),
+   allCommits: getAllCommits(events),
+   reducedCommits: getAllCommits(events).reduce((a,b) => a + b, 0)
  };
 };
 
@@ -23,23 +36,7 @@ const mapDispatchToProps = (dispatch) => {
  return {
    getEvents: (events) => {
       dispatch(getEvents(events));
-    },
-    getPushEvents: (pushEvents) => {
-      dispatch(getPushEvents(pushEvents));
-    },
-    getOpenedPullRequests: (openedPullRequests) => {
-      dispatch(getOpenedPullRequests(openedPullRequests));
-    },
-    getIssuesCreated: (issuesCreated) => {
-      dispatch(getIssuesCreated(issuesCreated));
-    },
-    getIssuesClosed: (issuesClosed) => {
-      dispatch(getIssuesClosed(issuesClosed));
-    },
-    getCommits: (commits) => {
-      dispatch(getCommits(commits));
     }
-
  };
 };
 

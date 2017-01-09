@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import CircularProgressbar from 'react-circular-progressbar';
 import userSettings from '../containers/userSettings';
 import userEvents from '../containers/userEvents';
-import userPushEvents from '../containers/userEvents';
 import Navigation from './Navigation';
 import helpers from './helpers';
 
@@ -11,9 +10,6 @@ import helpers from './helpers';
 class Home extends React.Component {
   constructor() {
     super();
-    this.state = {
-      pushEvents: null,
-    };
 }
 
 goToRepos() {
@@ -26,53 +22,14 @@ grabUserInfo() {
     method: 'GET'
   })
   .then((res) => {return res.json(); })
-  .then((response) => this.loadData(response))
+  .then((response) => this.props.getEvents(response))
   .catch(() => { alert('Please try again.'); });
-}
-
-loadData(events) {
-   this.props.getEvents(events);
-   this.getPushEvents(events);
-   this.getOpenedPullRequests(events);
-   this.getIssuesCreated(events);
-   this.getIssuesClosed(events);
-   this.getCommits(events);
-}
-
-getPushEvents(events) {
-  const pushEv = events.filter((ghEvent) => ghEvent.type==='PushEvent');
-  this.props.getPushEvents(pushEv);
-}
-
-getOpenedPullRequests(events) {
-  const pullReq = events.filter((ghEvent) => ghEvent.type==='PullRequestEvent');
-  const openedPullRequests = pullReq.filter((obj) => obj.payload.action==='opened');
-  this.props.getOpenedPullRequests(openedPullRequests);
-}
-
-getIssuesCreated(events) {
-  const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
-  const openedIssues = issues.filter((obj) => obj.payload.action==='opened');
-  this.props.getIssuesCreated(openedIssues);
-}
-
-getIssuesClosed(events) {
-  const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
-  const closedIssues = issues.filter((obj) => obj.payload.action==='closed');
-  this.props.getIssuesClosed(closedIssues);
-}
-
-getCommits() {
-  const { pushEvents } = this.props;
-  const commitLengths = pushEvents.map((obj) => obj.payload.commits.length);
-  const reducedCommits = commitLengths.reduce((a, b) => a + b, 0);
-  this.props.getCommits(reducedCommits);
 }
 
   render(){
     return(
       <div className='main-container'>
-        <Navigation backward={true} route={'/'}/>
+          <Navigation backward={true} route={'/'} />
         <section className='main'>
         { this.props.username ? <h2>Hello {this.props.username}!</h2> : <h2>Please enter your github name on the previous screen</h2> }
           <section className='current-mod-stats'>
@@ -95,13 +52,17 @@ getCommits() {
             <h3>14</h3>
             <h4>Followers</h4>
             <button
-            onClick={() => this.grabUserInfo()}
-            >fetch</button>
+              onClick={ (e) => {
+              e.preventDefault()
+              this.props.submitUserName(null)
+              mainProcess.saveUsername({ username: null })
+            }}
+            >Logout</button>
             <button
-            onClick={() => console.log(this.props) }
+            onClick={() => console.log(this.props.issuesCreated) }
             >log</button>
             <button
-            onClick={() => this.getIssuesClosed() }
+            onClick={() => console.log(this.props.reducedCommits) }
             >commits</button>
           </div>
         </section>
