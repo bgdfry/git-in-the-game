@@ -9,9 +9,10 @@ import {
       } from '../actions/index';
 
 const mapStateToProps = (state) => {
+  const { events } = state
  return {
-   events: state.events,
-   pushEvents: state.pushEvents,
+   events: events,
+   pushEvents: events.filter((ghEvent) => ghEvent.type==='PushEvent'),
    openedPullRequests: state.openedPullRequests,
    issuesCreated: state.issuesCreated,
    issuesClosed: state.issuesClosed,

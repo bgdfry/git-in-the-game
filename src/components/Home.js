@@ -11,9 +11,6 @@ import helpers from './helpers';
 class Home extends React.Component {
   constructor() {
     super();
-    this.state = {
-      pushEvents: null,
-    };
 }
 
 goToRepos() {
@@ -97,10 +94,10 @@ getCommits() {
             onClick={() => this.grabUserInfo()}
             >fetch</button>
             <button
-            onClick={() => console.log(this.props) }
+            onClick={() => console.log(this.props.pushEvents) }
             >log</button>
             <button
-            onClick={() => this.getIssuesClosed() }
+            onClick={() => console.log(this.props.events) }
             >commits</button>
           </div>
         </section>
