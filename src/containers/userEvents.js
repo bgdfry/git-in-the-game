@@ -12,6 +12,12 @@ const getOpenedPullRequests = (events) => {
   return openedPullRequests
 }
 
+const getIssueByType = (events, issueType) => {
+  const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
+  const listOfIssues = issues.filter((obj) => obj.payload.action===`${issueType}`);
+  return listOfIssues
+}
+
 const mapStateToProps = (state) => {
  const { events } = state
  return {
@@ -20,8 +26,8 @@ const mapStateToProps = (state) => {
    pullRequests: events.filter((ghEvent) => ghEvent.type==='PullRequestEvent'),
    issues: events.filter((ghEvent) => ghEvent.type==='IssuesEvent'),
    openedPullRequests: getOpenedPullRequests(events),
-   issuesCreated: state.issuesOpened,
-   issuesClosed: state.issuesClosed,
+   issuesCreated: getIssueByType(events, 'opened'),
+   issuesClosed: getIssueByType(events, 'closed'),
    commits: state.commits,
  };
 };

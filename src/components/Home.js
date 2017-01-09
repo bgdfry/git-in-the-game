@@ -84,7 +84,7 @@ getCommits() {
             onClick={() => console.log(this.props.events) }
             >log</button>
             <button
-            onClick={() => console.log(this.props.openedPullRequests) }
+            onClick={() => console.log(this.props.issuesClosed) }
             >commits</button>
           </div>
         </section>
