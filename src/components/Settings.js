@@ -8,6 +8,12 @@ const { remote } = require('electron');
 const mainProcess = remote.require('../../../main');
 
 class Settings extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      fieldValue: ''
+    };
+  }
 
   render() {
     let input;
@@ -22,8 +28,12 @@ class Settings extends React.Component {
                 }}>
             <section aria-labelledby='input-label'>
               <h2 className='input-label'>Please enter your Github username to Proceed:</h2>
-              <input placeholder='Github username' ref={ node => {input = node} } />
-              <button children='Submit' />
+              <input
+                placeholder='Github username'
+                ref={ node => {input = node} }
+                onKeyUp={(e)=> this.setState({fieldValue: e.target.value})
+              }/>
+              <button children='Submit' disabled={!this.state.fieldValue} />
             </section>
           </form>
           </section>
