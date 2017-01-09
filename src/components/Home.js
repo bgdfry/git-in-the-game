@@ -33,12 +33,6 @@ loadData(events) {
    this.getCommits(events);
 }
 
-getOpenedPullRequests(events) {
-  const pullReq = events.filter((ghEvent) => ghEvent.type==='PullRequestEvent');
-  const openedPullRequests = pullReq.filter((obj) => obj.payload.action==='opened');
-  this.props.getOpenedPullRequests(openedPullRequests);
-}
-
 getIssuesCreated(events) {
   const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
   const openedIssues = issues.filter((obj) => obj.payload.action==='opened');
@@ -90,7 +84,7 @@ getCommits() {
             onClick={() => console.log(this.props.events) }
             >log</button>
             <button
-            onClick={() => console.log(this.props.issues) }
+            onClick={() => console.log(this.props.openedPullRequests) }
             >commits</button>
           </div>
         </section>

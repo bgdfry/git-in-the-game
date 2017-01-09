@@ -1,21 +1,26 @@
 import { connect } from 'react-redux';
 import {
         getEvents,
-        getOpenedPullRequests,
         getIssuesCreated,
         getIssuesClosed,
         getCommits,
       } from '../actions/index';
 
+const getOpenedPullRequests = (events) => {
+  const pullReq = events.filter((ghEvent) => ghEvent.type==='PullRequestEvent');
+  const openedPullRequests = pullReq.filter((obj) => obj.payload.action==='opened');
+  return openedPullRequests
+}
+
 const mapStateToProps = (state) => {
-  const { events } = state
+ const { events } = state
  return {
    events: events,
    pushEvents: events.filter((ghEvent) => ghEvent.type==='PushEvent'),
    pullRequests: events.filter((ghEvent) => ghEvent.type==='PullRequestEvent'),
    issues: events.filter((ghEvent) => ghEvent.type==='IssuesEvent'),
-   openedPullRequests: state.openedPullRequests,
-   issuesCreated: state.issuesCreated,
+   openedPullRequests: getOpenedPullRequests(events),
+   issuesCreated: state.issuesOpened,
    issuesClosed: state.issuesClosed,
    commits: state.commits,
  };
