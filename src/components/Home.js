@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import CircularProgressbar from 'react-circular-progressbar';
 import userSettings from '../containers/userSettings';
 import userEvents from '../containers/userEvents';
-import userPushEvents from '../containers/userEvents';
 import Navigation from './Navigation';
 import helpers from './helpers';
 
@@ -59,10 +58,10 @@ loadData(events) {
             onClick={() => this.grabUserInfo()}
             >fetch</button>
             <button
-            onClick={() => console.log(this.props.events) }
+            onClick={() => console.log(this.props.issuesCreated) }
             >log</button>
             <button
-            onClick={() => console.log(this.props.commits) }
+            onClick={() => console.log(this.props.issuesClosed) }
             >commits</button>
           </div>
         </section>
