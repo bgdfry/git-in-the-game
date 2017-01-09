@@ -1,9 +1,6 @@
 import { connect } from 'react-redux';
 import {
         getEvents,
-        getIssuesCreated,
-        getIssuesClosed,
-        getCommits,
       } from '../actions/index';
 
 const getPullRequestByType = (events, prType) => {
@@ -18,6 +15,13 @@ const getIssueByType = (events, issueType) => {
   return listOfIssues
 }
 
+const getCommits = (events) => {
+  const pushEvents = events.filter((ghEvent) => ghEvent.type==='PushEvent')
+  const commitLengths = pushEvents.map((obj) => obj.payload.commits.length);
+  const reducedCommits = commitLengths.reduce((a, b) => a + b, 0);
+  return reducedCommits
+}
+
 const mapStateToProps = (state) => {
  const { events } = state
  return {
@@ -28,7 +32,7 @@ const mapStateToProps = (state) => {
    openedPullRequests: getPullRequestByType(events, 'opened'),
    issuesCreated: getIssueByType(events, 'opened'),
    issuesClosed: getIssueByType(events, 'closed'),
-   commits: state.commits,
+   commits: getCommits(events),
  };
 };
 

@@ -28,28 +28,6 @@ grabUserInfo() {
 
 loadData(events) {
    this.props.getEvents(events);
-   this.getIssuesCreated(events);
-   this.getIssuesClosed(events);
-   this.getCommits(events);
-}
-
-getIssuesCreated(events) {
-  const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
-  const openedIssues = issues.filter((obj) => obj.payload.action==='opened');
-  this.props.getIssuesCreated(openedIssues);
-}
-
-getIssuesClosed(events) {
-  const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
-  const closedIssues = issues.filter((obj) => obj.payload.action==='closed');
-  this.props.getIssuesClosed(closedIssues);
-}
-
-getCommits() {
-  const { pushEvents } = this.props;
-  const commitLengths = pushEvents.map((obj) => obj.payload.commits.length);
-  const reducedCommits = commitLengths.reduce((a, b) => a + b, 0);
-  this.props.getCommits(reducedCommits);
 }
 
   render(){
@@ -84,7 +62,7 @@ getCommits() {
             onClick={() => console.log(this.props.events) }
             >log</button>
             <button
-            onClick={() => console.log(this.props.openedPullRequests) }
+            onClick={() => console.log(this.props.commits) }
             >commits</button>
           </div>
         </section>
