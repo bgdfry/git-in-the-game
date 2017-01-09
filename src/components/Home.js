@@ -21,12 +21,8 @@ grabUserInfo() {
     method: 'GET'
   })
   .then((res) => {return res.json(); })
-  .then((response) => this.loadData(response))
+  .then((response) => this.props.getEvents(response))
   .catch(() => { alert('Please try again.'); });
-}
-
-loadData(events) {
-   this.props.getEvents(events);
 }
 
   render(){
