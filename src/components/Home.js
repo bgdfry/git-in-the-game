@@ -21,7 +21,8 @@ goToRepos() {
 }
 
 grabUserInfo() {
-  fetch(`https://api.github.com/users/bcgodfrey91/events?page=0&callback`, {
+  const user = this.props.username;
+  fetch(`https://api.github.com/users/${user}/events?page=0&callback`, {
     method: 'GET'
   })
   .then((res) => {return res.json(); })
@@ -76,16 +77,16 @@ getCommits() {
         { this.props.username ? <h2>Hello {this.props.username}!</h2> : <h2>Please enter your github name on the previous screen</h2> }
           <section className='current-mod-stats'>
             <div className='stat'>
-              <h3>Mod 1 Repost:</h3>
+              <h3>Last Week Commits:</h3>
               <h1>22</h1>
             </div>
             <div className='stat'>
-              <h3>Mod 1 Commits:</h3>
+              <h3>Last Week PR's:</h3>
               <h1>134</h1>
             </div>
           </section>
           <div className='stat'>
-            <h3>You VS Last Mod:</h3>
+            <h3>Commits VS Last Week:</h3>
             <CircularProgressbar
               percentage={60}
               strokeWidth={20} />

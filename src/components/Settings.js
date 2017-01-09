@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import userSettings from '../containers/userSettings';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import Navigation from './Navigation';
 
 const { remote } = require('electron');
@@ -10,6 +10,7 @@ const mainProcess = remote.require('../../../main');
 class Settings extends React.Component {
 
   render() {
+    console.log(this.props);
     let input;
     return (
       <section className="main-container">
@@ -29,7 +30,10 @@ class Settings extends React.Component {
             </section>
           </form>
           </section>
-        <Navigation forward={true} route={'/home'}/>
+        {this.props.username ?
+          this.props.router.push('/home')
+          :
+          null}
       </section>
     );
   }
