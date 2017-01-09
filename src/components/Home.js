@@ -57,7 +57,7 @@ grabUserInfo() {
             onClick={() => console.log(this.props.issuesCreated) }
             >log</button>
             <button
-            onClick={() => console.log(this.props.issuesClosed) }
+            onClick={() => console.log(this.props.reducedCommits) }
             >commits</button>
           </div>
         </section>

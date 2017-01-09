@@ -15,12 +15,12 @@ const getIssueByType = (events, issueType) => {
   return listOfIssues
 }
 
-const getCommits = (events) => {
+const getAllCommits = (events) => {
   const pushEvents = events.filter((ghEvent) => ghEvent.type==='PushEvent')
-  const commitLengths = pushEvents.map((obj) => obj.payload.commits.length);
-  const reducedCommits = commitLengths.reduce((a, b) => a + b, 0);
-  return reducedCommits
+  const allCommits = pushEvents.map((obj) => obj.payload.commits.length);
+  return allCommits
 }
+
 
 const mapStateToProps = (state) => {
  const { events } = state
@@ -29,7 +29,8 @@ const mapStateToProps = (state) => {
    openedPullRequests: getPullRequestByType(events, 'opened'),
    issuesCreated: getIssueByType(events, 'opened'),
    issuesClosed: getIssueByType(events, 'closed'),
-   commits: getCommits(events),
+   allCommits: getAllCommits(events),
+   reducedCommits: getAllCommits(events).reduce((a,b) => a + b, 0)
  };
 };
 
