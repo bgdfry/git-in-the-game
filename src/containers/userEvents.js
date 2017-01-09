@@ -13,6 +13,7 @@ const mapStateToProps = (state) => {
  return {
    events: events,
    pushEvents: events.filter((ghEvent) => ghEvent.type==='PushEvent'),
+   pullRequests: events.filter((ghEvent) => ghEvent.type==='PullRequestEvent'),
    openedPullRequests: state.openedPullRequests,
    issuesCreated: state.issuesCreated,
    issuesClosed: state.issuesClosed,

@@ -28,16 +28,10 @@ grabUserInfo() {
 
 loadData(events) {
    this.props.getEvents(events);
-   this.getPushEvents(events);
    this.getOpenedPullRequests(events);
    this.getIssuesCreated(events);
    this.getIssuesClosed(events);
    this.getCommits(events);
-}
-
-getPushEvents(events) {
-  const pushEv = events.filter((ghEvent) => ghEvent.type==='PushEvent');
-  this.props.getPushEvents(pushEv);
 }
 
 getOpenedPullRequests(events) {
@@ -94,10 +88,10 @@ getCommits() {
             onClick={() => this.grabUserInfo()}
             >fetch</button>
             <button
-            onClick={() => console.log(this.props.pushEvents) }
+            onClick={() => console.log(this.props.events) }
             >log</button>
             <button
-            onClick={() => console.log(this.props.events) }
+            onClick={() => console.log(this.props.pullRequests) }
             >commits</button>
           </div>
         </section>
