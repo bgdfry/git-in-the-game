@@ -11,8 +11,8 @@ export const submitUserName = (inputVal) => {
 };
 
 export const getEvents = (data) => {
-    return {
-      type: types.GET_EVENTS,
-      data: data
-    };
+  return {
+    type: types.GET_EVENTS,
+    data: data
   };
+};

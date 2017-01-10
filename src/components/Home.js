@@ -26,7 +26,25 @@ grabUserInfo() {
   .catch(() => { alert('Please try again.'); });
 }
 
+commitPercentage(currentWeekCommits, previousWeekCommits) {
+  const current = currentWeekCommits.reduce((a,b) => a + b);
+  const previous = previousWeekCommits.reduce((a, b) => a + b);
+  const decimal = current / previous;
+  const arr = decimal.toString().split('.');
+  const length = 2;
+  if(arr.length === 1){ return 100}
+  if(arr[1].length < 2){ length = arr[1].length - 1 }
+  if(arr[0] < 1){ 
+    return parseInt(arr[1].substring(0, length));
+  }
+  else { 
+    console.log(arr[1].length);
+    return parseInt(arr[0].concat(arr[1].substring(0, length)))
+  }
+}
+
   render(){
+    console.log(this.commitPercentage([10,2,3,4,1,2,5], [14,21,2,3,5,2,1]));
     return(
       <div className='main-container'>
         <Navigation backward={true} route={'/'} />
@@ -45,7 +63,7 @@ grabUserInfo() {
           <div className='stat'>
             <h3>Commits VS Last Week:</h3>
             <CircularProgressbar
-              percentage={60}
+              percentage={this.commitPercentage([10,2,3,4,1,2,5], [14,21,2,3,5,2,1])}
               strokeWidth={20} />
           </div>
           <div className='follower-count'>
@@ -59,7 +77,7 @@ grabUserInfo() {
             }}
             >Logout</button>
             <button
-            onClick={() => console.log(this.props.issuesCreated) }
+            onClick={() => console.log(this.commitPercentage())}
             >log</button>
             <button
             onClick={() => console.log(this.props.reducedCommits) }
