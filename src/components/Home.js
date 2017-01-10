@@ -42,13 +42,25 @@ class Home extends React.Component {
     else { return parseInt(arr[0].concat(arr[1].substring(0, size)));}
   }
 
+  componentWillMount(){
+    if (this.props.username===''){
+      this.props.router.push('/login');
+    }
+  }
+
+  componentWillReceiveProps(nextProps){
+    if (nextProps.username===''){
+      this.props.router.push('/login');
+    }
+  }
+
   render(){
     const currentWeekCommits = [10,14,3,4,1,2,5];
     const previousWeekCommits = [14,21,2,3,5,2,1];
     const previousWeekPrs = [0,0,2,3,1,0,0];
     return(
       <div className='main-container'>
-        <Navigation backward={true} route={'/'} />
+        <Navigation backward={true} route={'/login'}/>
         <section className='main'>
         { this.props.username ? <h2>Hello {this.props.username}!</h2> : <h2>Please enter your github name on the previous screen</h2> }
           <section className='current-mod-stats'>
@@ -85,6 +97,9 @@ class Home extends React.Component {
             <button
             onClick={() => console.log(this.props.reducedCommits) }
             >commits</button>
+            <button
+            onClick={() => this.props.submitUserName('')}
+            >Log out</button>
           </div>
         </section>
         <Navigation forward={true} route={'/dashboard'}/>
