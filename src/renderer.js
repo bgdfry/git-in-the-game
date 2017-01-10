@@ -19,17 +19,13 @@ ipcRenderer.on('retrievedGithubData', () => {
   console.log('hey');
 });
 
-let checkForUser = () => {
-  return JSON.parse(localStorage.getItem('username'));
-}
-
-let user = checkForUser()
+let user = JSON.parse(localStorage.getItem('username'));
 
 ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path='/' component={App}>
-        { user ? <IndexRoute component={Home} /> : <IndexRoute component={Settings} />  }
+        { user ? <IndexRoute component={Home} /> : <IndexRoute component={Settings} /> }
         <Route path='/login' component={Settings} />
         <Route path='/home' component={Home} />
         <Route path='/repos' component={Repos} />
