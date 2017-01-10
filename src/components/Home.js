@@ -26,25 +26,26 @@ grabUserInfo() {
   .catch(() => { alert('Please try again.'); });
 }
 
+sumArray(array){
+  return array.reduce((a,b) => a + b);
+}
+
 commitPercentage(currentWeekCommits, previousWeekCommits) {
-  const current = currentWeekCommits.reduce((a,b) => a + b);
-  const previous = previousWeekCommits.reduce((a, b) => a + b);
+  const current = this.sumArray(currentWeekCommits);
+  const previous = this.sumArray(previousWeekCommits);
   const decimal = current / previous;
   const arr = decimal.toString().split('.');
   const length = 2;
-  if(arr.length === 1){ return 100}
+  if(arr.length === 1){ return 100 }
   if(arr[1].length < 2){ length = arr[1].length - 1 }
-  if(arr[0] < 1){ 
-    return parseInt(arr[1].substring(0, length));
-  }
-  else { 
-    console.log(arr[1].length);
-    return parseInt(arr[0].concat(arr[1].substring(0, length)))
-  }
+  if(arr[0] < 1){ return parseInt(arr[1].substring(0, length)) }
+  else { return parseInt(arr[0].concat(arr[1].substring(0, length)))}
 }
 
   render(){
-    console.log(this.commitPercentage([10,2,3,4,1,2,5], [14,21,2,3,5,2,1]));
+    const currentWeekCommits = [10,14,3,4,1,2,5];
+    const previousWeekCommits = [14,21,2,3,5,2,1];
+    const previousWeekPrs = [0,0,2,3,1,0,0];
     return(
       <div className='main-container'>
         <Navigation backward={true} route={'/'} />
@@ -53,17 +54,17 @@ commitPercentage(currentWeekCommits, previousWeekCommits) {
           <section className='current-mod-stats'>
             <div className='stat'>
               <h3>Last Week Commits:</h3>
-              <h1>22</h1>
+              <h1>{this.sumArray(currentWeekCommits)}</h1>
             </div>
             <div className='stat'>
               <h3>Last Week PR's:</h3>
-              <h1>134</h1>
+              <h1>{this.sumArray(previousWeekPrs)}</h1>
             </div>
           </section>
           <div className='stat'>
             <h3>Commits VS Last Week:</h3>
             <CircularProgressbar
-              percentage={this.commitPercentage([10,2,3,4,1,2,5], [14,21,2,3,5,2,1])}
+              percentage={this.commitPercentage(currentWeekCommits, previousWeekCommits)}
               strokeWidth={20} />
           </div>
           <div className='follower-count'>
