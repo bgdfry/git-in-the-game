@@ -4,6 +4,7 @@ const types = {
 };
 
 export const submitUserName = (inputVal) => {
+  localStorage.setItem('username', JSON.stringify(inputVal));
   return {
     type: types.USERNAME,
     username: inputVal

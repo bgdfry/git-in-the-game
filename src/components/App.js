@@ -1,8 +1,15 @@
 import React from 'react';
+import userSettings from '../containers/userSettings'
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor() {
     super();
+}
+
+componentWillMount(){
+  let user = JSON.parse(localStorage.getItem('username'));
+  if (user){ this.props.submitUserName(user) };
+  return;
 }
 
 render(){
@@ -13,3 +20,5 @@ render(){
     );
   }
 };
+
+export default userSettings(App);

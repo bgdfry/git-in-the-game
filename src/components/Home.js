@@ -12,10 +12,6 @@ class Home extends React.Component {
     super();
 }
 
-goToRepos() {
-  this.context.router.push('/repos');
-}
-
 grabUserInfo() {
   fetch(`https://api.github.com/users/kylem038/events?page=0&callback`, {
     method: 'GET'
@@ -25,10 +21,22 @@ grabUserInfo() {
   .catch(() => { alert('Please try again.'); });
 }
 
+componentWillMount(){
+  if (this.props.username===''){
+    this.props.router.push('/login');
+  }
+}
+
+componentWillReceiveProps(nextProps){
+  if (nextProps.username===''){
+    this.props.router.push('/login');
+  }
+}
+
   render(){
     return(
       <div className='main-container'>
-        <Navigation backward={true} route={'/'}/>
+        <Navigation backward={true} route={'/login'}/>
         <section className='main'>
         { this.props.username ? <h2>Hello {this.props.username}!</h2> : <h2>Please enter your github name on the previous screen</h2> }
           <section className='current-mod-stats'>
@@ -59,6 +67,9 @@ grabUserInfo() {
             <button
             onClick={() => console.log(this.props.reducedCommits) }
             >commits</button>
+            <button
+            onClick={() => this.props.submitUserName('')}
+            >Log out</button>
           </div>
         </section>
         <Navigation forward={true} route={'/repos'}/>
