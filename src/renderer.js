@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-import submitUserName from './actions/index';
 
 import rootReducer from './reducers/index';
 import Home from './components/Home';

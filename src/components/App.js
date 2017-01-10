@@ -6,15 +6,10 @@ class App extends React.Component {
     super();
 }
 
-checkForUser() {
-  let user = JSON.parse(localStorage.getItem('username'));
-  if (user){
-    this.props.submitUserName(user);
-  }
-}
-
 componentWillMount(){
-  this.checkForUser();
+  let user = JSON.parse(localStorage.getItem('username'));
+  if (user){ this.props.submitUserName(user) };
+  return;
 }
 
 render(){
