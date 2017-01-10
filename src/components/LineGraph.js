@@ -2,14 +2,27 @@ import React from 'react';
 const LineChart = require('react-chartjs-2').Line;
 
 const LineGraph = ({ currentWeekData, previousWeekData, labels, title }) => {
+  let colors = [];
+  for(let i = 0; i < previousWeekData.length; i++){
+    if(previousWeekData[i] > currentWeekData[i]){
+      colors.push("rgba(255, 1, 1, 0.8)");
+    }
+    else {
+      colors.push("rgba(52, 255, 1, 0.8)")
+    }
+  }
   let chartData = {
     labels: labels,
     datasets: [{
       borderColor: "rgb(89, 89, 89)",
-      pointBackgroundColor: "rgba(52, 255, 1, 1)",
-      backgroundColor: "rgba(52, 255, 1, 0.6)",
+      pointBackgroundColor: colors,
+      backgroundColor: colors,
       data: currentWeekData,
-      label: 'Current Week'
+      label: 'Current Week',
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: colors,
+      pointHoverBorderColor: "rgb(89, 89, 89)",
+      pointHoverBorderWidth: 2,
     },
     {
       borderColor: "rgb(221, 221, 221)",
@@ -24,9 +37,9 @@ let chartOptions = {
   title: {
     text: title,
     display: true,
-    fontColor: "#DDD",
-    fontSize: 14,
-    fontFamily: "'Roboto Slab', serif",
+    fontColor: "rgb(89, 89, 89)",
+    fontSize: 18,
+    fontFamily: "'Roboto', sans-serif",
     fontStyle: "100"
   },
   scales: {

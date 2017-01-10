@@ -10,6 +10,9 @@ import helpers from './helpers';
 class Home extends React.Component {
   constructor() {
     super();
+    // this.state = {
+    //   commitsVsLastWeek: null
+    // }
   }
 
   goToRepos() {
@@ -33,6 +36,7 @@ class Home extends React.Component {
   commitPercentage(currentWeekCommits, previousWeekCommits) {
     const current = this.sumArray(currentWeekCommits);
     const previous = this.sumArray(previousWeekCommits);
+    // this.setState({commitsVsLastWeek: (current - previous)});
     const decimal = current / previous;
     const arr = decimal.toString().split('.');
     let size = 2;
@@ -111,3 +115,6 @@ class Home extends React.Component {
 export default userEvents(
                   userSettings(Home)
               );
+
+
+        //  { this.state.commitsVsLastWeek >= 0 ? <h2>You did it! {this.state.commitsVsLastWeek} commits!</h2> : <h2>Only {this.state.commitsVsLastWeek} more commits to go</h2> }
