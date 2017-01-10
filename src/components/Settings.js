@@ -8,9 +8,14 @@ const { remote } = require('electron');
 const mainProcess = remote.require('../../../main');
 
 class Settings extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      fieldValue: ''
+    };
+  }
 
   render() {
-    console.log(this.props);
     let input;
     return (
       <section className="main-container">
@@ -21,12 +26,14 @@ class Settings extends React.Component {
                 this.props.submitUserName(input.value)
                 mainProcess.saveUsername({ username: input.value })
                 }}>
-            <section className='mod-input'>
-              <label>
-                <h2>Github Username</h2>
-              </label>
-              <input placeholder='Github username' ref={ node => {input = node} } />
-              <button children='Submit' />
+            <section aria-labelledby='input-label'>
+              <h2 className='input-label'>Please enter your Github username to Proceed:</h2>
+              <input
+                placeholder='Github username'
+                ref={ node => {input = node} }
+                onKeyUp={(e)=> this.setState({fieldValue: e.target.value})
+              }/>
+              <button children='Submit' disabled={!this.state.fieldValue} />
             </section>
           </form>
           </section>

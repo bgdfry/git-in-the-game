@@ -25,19 +25,25 @@ class Repo extends React.Component {
     let graphData = {
       labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
       currentWeekData: [12, 10, 25, 14, 1, 2, 0],
+      // currentWeekData: this.props.currentWeekCommits,
       previousWeekData: [8, 12, 28, 11, 10, 6, 2],
+      // previousWeekData: this.props.previousWeekCommits,
       title: 'Commits This Week VS Last Week'
     };
     let graphData2 = {
       labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
       currentWeekData: [1, 1, 2, 1, 1, 2, 0],
+      // currentWeekData: this.props.currentWeekIssues,
       previousWeekData: [2, 2, 3, 1, 1, 0, 2],
+      // currentWeekData: this.props.previousWeekIssues,
       title: 'Issues This Week VS Last Week'
     };
     let graphData3 = {
       labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
       currentWeekData: [1, 4, 3, 2, 1, 0, 1],
+      // currentWeekData: this.props.currentWeekPrs,
       previousWeekData: [0, 0, 1, 3, 2, 1, 1],
+      // currentWeekData: this.props.previousWeekPrs,
       title: 'PRs This Week VS Last Week'
     };
     const { commits, issues, pullRequests } = this.state;
@@ -69,6 +75,9 @@ class Repo extends React.Component {
             <li className={`graph-button ${commits ? 'selected-graph' : ''}`}
               onClick={() => this.toggleGraphView('commits')}
               >COMMITS</li>
+            <li className={`graph-button ${issues ? 'selected-graph' : ''}`}
+              onClick={() => this.toggleGraphView('issues')}
+              >ISSUES</li>
             <li className={`graph-button ${issues ? 'selected-graph' : ''}`}
               onClick={() => this.toggleGraphView('issues')}
               >ISSUES</li>
