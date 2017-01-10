@@ -43,7 +43,7 @@ let chartOptions = {
 };
 
   return (
-    <LineChart data={chartData} options={chartOptions} width={450} height={160}/>
+    <LineChart data={chartData} options={chartOptions} width={350} height={160}/>
   );
 }
 

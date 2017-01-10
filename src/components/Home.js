@@ -10,37 +10,37 @@ import helpers from './helpers';
 class Home extends React.Component {
   constructor() {
     super();
-}
+  }
 
-goToRepos() {
-  this.context.router.push('/repos');
-}
+  goToRepos() {
+    this.context.router.push('/repos');
+  }
 
-grabUserInfo() {
-  const user = this.props.username;
-  fetch(`https://api.github.com/users/${user}/events?page=0&callback`, {
-    method: 'GET'
-  })
-  .then((res) => {return res.json(); })
-  .then((response) => this.props.getEvents(response))
-  .catch(() => { alert('Please try again.'); });
-}
+  grabUserInfo() {
+    const user = this.props.username;
+    fetch(`https://api.github.com/users/${user}/events?page=0&callback`, {
+      method: 'GET'
+    })
+    .then((res) => {return res.json(); })
+    .then((response) => this.props.getEvents(response))
+    .catch(() => { alert('Please try again.'); });
+  }
 
-sumArray(array){
-  return array.reduce((a,b) => a + b);
-}
+  sumArray(array){
+    return array.reduce((a,b) => a + b);
+  }
 
-commitPercentage(currentWeekCommits, previousWeekCommits) {
-  const current = this.sumArray(currentWeekCommits);
-  const previous = this.sumArray(previousWeekCommits);
-  const decimal = current / previous;
-  const arr = decimal.toString().split('.');
-  const length = 2;
-  if(arr.length === 1){ return 100 }
-  if(arr[1].length < 2){ length = arr[1].length - 1 }
-  if(arr[0] < 1){ return parseInt(arr[1].substring(0, length)) }
-  else { return parseInt(arr[0].concat(arr[1].substring(0, length)))}
-}
+  commitPercentage(currentWeekCommits, previousWeekCommits) {
+    const current = this.sumArray(currentWeekCommits);
+    const previous = this.sumArray(previousWeekCommits);
+    const decimal = current / previous;
+    const arr = decimal.toString().split('.');
+    let size = 2;
+    if(arr.length === 1){ return 100; }
+    if(arr[1].length < 2){ size = arr[1].length - 1; }
+    if(arr[0] < 1){ return parseInt(arr[1].substring(0, size)); }
+    else { return parseInt(arr[0].concat(arr[1].substring(0, size)));}
+  }
 
   render(){
     const currentWeekCommits = [10,14,3,4,1,2,5];
@@ -65,7 +65,9 @@ commitPercentage(currentWeekCommits, previousWeekCommits) {
             <h3>Commits VS Last Week:</h3>
             <CircularProgressbar
               percentage={this.commitPercentage(currentWeekCommits, previousWeekCommits)}
-              strokeWidth={20} />
+              strokeWidth={20}
+              initialAnimation={true}
+              classForPercentage={(pct) => pct < 100 ? 'incomplete' : 'complete'}/>
           </div>
           <div className='follower-count'>
             <h3>14</h3>
@@ -85,7 +87,7 @@ commitPercentage(currentWeekCommits, previousWeekCommits) {
             >commits</button>
           </div>
         </section>
-        <Navigation forward={true} route={'/repos'}/>
+        <Navigation forward={true} route={'/dashboard'}/>
       </div>
     );
   }
