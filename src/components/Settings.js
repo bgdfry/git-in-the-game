@@ -36,6 +36,9 @@ class Settings extends React.Component {
               <button children='Submit' disabled={!this.state.fieldValue} />
             </section>
           </form>
+          <button className='mod-form'
+            onClick={ mainProcess.clearUserName() }
+          >Logout</button>
           </section>
           { this.props.username ?
               <Navigation forward={true} route={'/home'}/> : null }
