@@ -4,9 +4,6 @@ import userSettings from '../containers/userSettings';
 import { Link } from 'react-router';
 import Navigation from './Navigation';
 
-const { remote } = require('electron');
-const mainProcess = remote.require('../../../main');
-
 class Settings extends React.Component {
   constructor(){
     super();
@@ -24,7 +21,6 @@ class Settings extends React.Component {
                 onSubmit={ (e) => {
                 e.preventDefault()
                 this.props.submitUserName(input.value)
-                mainProcess.saveUsername({ username: input.value })
                 }}>
             <section aria-labelledby='input-label'>
               <h2 className='input-label'>Please enter your Github username to Proceed:</h2>
