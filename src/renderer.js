@@ -8,8 +8,7 @@ import rootReducer from './reducers/index';
 import Home from './components/Home';
 import Settings from './components/Settings';
 import App from './components/App';
-import Repos from './components/Repos';
-import Repo from './components/Repo';
+import Dashboard from './components/Dashboard';
 
 const store = createStore(rootReducer);
 const { ipcRenderer } = require('electron');
@@ -26,8 +25,7 @@ ReactDOM.render(
         <IndexRoute component={Settings} />
         {/* else show */}
         <Route path='/home' component={Home} />
-        <Route path='/repos' component={Repos} />
-        <Route path='/repos/:name' component={Repo}/>
+        <Route path='/dashboard' component={Dashboard} />
       </Route>
     </Router>
   </Provider>,
