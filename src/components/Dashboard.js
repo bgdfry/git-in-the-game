@@ -33,10 +33,10 @@ class Dashboard extends React.Component {
     };
     let graphData2 = {
       labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-      currentWeekData: [1, 1, 2, 1, 1, 2, 0],
+      currentWeekData: [4, 3, 2, 2, 1, 2, 0],
       // currentWeekData: this.props.currentWeekIssuesOpened,
       previousWeekData: [2, 2, 3, 1, 1, 0, 2],
-      // currentWeekData: this.props.previousWeekIssuesOpened,
+      // previousWeekData: this.props.previousWeekIssuesOpened,
       title: 'Issues Opened This Week VS Last Week'
     };
     let graphData3 = {
@@ -44,7 +44,7 @@ class Dashboard extends React.Component {
       currentWeekData: [1, 1, 2, 1, 1, 2, 0],
       // currentWeekData: this.props.currentWeekIssuesClosed,
       previousWeekData: [2, 2, 3, 1, 1, 0, 2],
-      // currentWeekData: this.props.previousWeekIssuesClosed,
+      // previousWeekData: this.props.previousWeekIssuesClosed,
       title: 'Issues Closed This Week VS Last Week'
     };
     let graphData4 = {
@@ -52,7 +52,7 @@ class Dashboard extends React.Component {
       currentWeekData: [1, 4, 3, 2, 1, 0, 1],
       // currentWeekData: this.props.currentWeekPrs,
       previousWeekData: [0, 0, 1, 3, 2, 1, 1],
-      // currentWeekData: this.props.previousWeekPrs,
+      // previousWeekData: this.props.previousWeekPrs,
       title: 'PRs This Week VS Last Week'
     };
     const { commits, issuesOpened, issuesClosed, pullRequests } = this.state;

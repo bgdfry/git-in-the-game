@@ -10,9 +10,6 @@ import helpers from './helpers';
 class Home extends React.Component {
   constructor() {
     super();
-    // this.state = {
-    //   commitsVsLastWeek: null
-    // }
   }
 
   goToRepos() {
@@ -36,7 +33,6 @@ class Home extends React.Component {
   commitPercentage(currentWeekCommits, previousWeekCommits) {
     const current = this.sumArray(currentWeekCommits);
     const previous = this.sumArray(previousWeekCommits);
-    // this.setState({commitsVsLastWeek: (current - previous)});
     const decimal = current / previous;
     const arr = decimal.toString().split('.');
     let size = 2;
@@ -64,7 +60,6 @@ class Home extends React.Component {
     const previousWeekPrs = [0,0,2,3,1,0,0];
     return(
       <div className='main-container'>
-        <Navigation backward={true} route={'/login'}/>
         <section className='main'>
         { this.props.username ? <h2>Hello {this.props.username}!</h2> : <h2>Please enter your github name on the previous screen</h2> }
           <section className='current-mod-stats'>
@@ -86,24 +81,9 @@ class Home extends React.Component {
               classForPercentage={(pct) => pct < 100 ? 'incomplete' : 'complete'}/>
           </div>
           <div className='follower-count'>
+            <button onClick={() => this.props.submitUserName('')}>Log out</button>
             <h3>14</h3>
             <h4>Followers</h4>
-            <button
-              onClick={ (e) => {
-              e.preventDefault()
-              this.props.submitUserName(null)
-              mainProcess.saveUsername({ username: null })
-            }}
-            >Logout</button>
-            <button
-            onClick={() => console.log(this.commitPercentage())}
-            >log</button>
-            <button
-            onClick={() => console.log(this.props.reducedCommits) }
-            >commits</button>
-            <button
-            onClick={() => this.props.submitUserName('')}
-            >Log out</button>
           </div>
         </section>
         <Navigation forward={true} route={'/dashboard'}/>
