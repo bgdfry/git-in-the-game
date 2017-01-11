@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import userSettings from '../containers/userSettings';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import Navigation from './Navigation';
 
 class Settings extends React.Component {
@@ -33,8 +33,10 @@ class Settings extends React.Component {
             </section>
           </form>
           </section>
-          { this.props.username ?
-              <Navigation forward={true} route={'/home'}/> : null }
+        {this.props.username ?
+          this.props.router.push('/home')
+          :
+          null}
       </section>
     );
   }

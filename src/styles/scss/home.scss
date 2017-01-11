@@ -26,19 +26,37 @@
 }
 
 .CircularProgressbar .CircularProgressbar-path {
-  stroke: $color-winning;
-  stroke-linecap: round;
-  transition: stroke-dashoffset 0.5s ease 0s;
+  stroke: $color-losing;
+  stroke-width: 10px;
+  transition: stroke-dashoffset 0.75s ease 0s;
 }
 
 .CircularProgressbar .CircularProgressbar-trail {
   stroke: #d6d6d6;
+  stroke-width: 10px;
 }
 
 .CircularProgressbar .CircularProgressbar-text {
-  fill: #82C13C;
+  fill: $color-losing;
   font-size: 20px;
   dominant-baseline: middle;
   text-anchor: middle;
   font-family: $font-main;
+}
+
+
+
+.complete .CircularProgressbar-path {
+  stroke: $color-winning;
+  stroke-width: 12px;
+
+}
+
+.complete .CircularProgressbar-trail {
+  stroke: darken($color-winning, 20);
+}
+
+.complete .CircularProgressbar-text {
+  fill: $color-winning;
+  font-size: 20px;
 }

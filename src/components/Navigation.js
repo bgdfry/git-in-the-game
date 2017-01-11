@@ -6,7 +6,7 @@ class Navigation extends React.Component {
   render() {
     const { forward, backward, route } = this.props;
     return (
-      <Link 
+      <Link
         to={route}
         className={ forward ? 'navigation forward-nav' : 'navigation backward-nav' }
         >

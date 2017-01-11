@@ -81,7 +81,6 @@ a {
 
 .main-container {
   display: flex;
-  flex-direction: row;
   height: 300px;
   width: 100%; }
 
@@ -148,19 +147,31 @@ a {
     margin: 2px; }
 
 .CircularProgressbar .CircularProgressbar-path {
-  stroke: #82C13C;
-  stroke-linecap: round;
-  transition: stroke-dashoffset 0.5s ease 0s; }
+  stroke: #D0011B;
+  stroke-width: 10px;
+  transition: stroke-dashoffset 0.75s ease 0s; }
 
 .CircularProgressbar .CircularProgressbar-trail {
-  stroke: #d6d6d6; }
+  stroke: #d6d6d6;
+  stroke-width: 10px; }
 
 .CircularProgressbar .CircularProgressbar-text {
-  fill: #82C13C;
+  fill: #D0011B;
   font-size: 20px;
   dominant-baseline: middle;
   text-anchor: middle;
   font-family: "Roboto", sans-serif; }
+
+.complete .CircularProgressbar-path {
+  stroke: #34ff01;
+  stroke-width: 12px; }
+
+.complete .CircularProgressbar-trail {
+  stroke: #1f9a00; }
+
+.complete .CircularProgressbar-text {
+  fill: #34ff01;
+  font-size: 20px; }
 
 .all-repos {
   max-height: 500px;
@@ -208,7 +219,7 @@ a {
 .repo-chart {
   display: flex;
   align-self: center;
-  height: 160px;
+  height: 250px;
   width: 90%;
   padding: 0px 0px 20px 0px; }
 
