@@ -13,7 +13,7 @@ fetchUserCommits(page = 0, user) {
     .then(response => this.props.getEvents(response))
     .then(page < 10 ? this.fetchUserCommits(page + 1, user) : null)
     .then(()=>this.props.getWeeklyCommitArrays(this.props.events))
-    .catch(() => alert('Please try again.'));
+    .catch(console.log('error'));
 }
 
 componentWillMount(){
