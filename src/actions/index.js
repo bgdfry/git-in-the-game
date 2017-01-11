@@ -24,10 +24,10 @@ export const getWeeklyCommitArrays = (arr) => {
 
   let commitsByDay = [0,0,0,0,0,0,0];
 
-  //get this week's push events:
   let thisWeekPushEvents = arr.filter(e => {
     return (
-      e.type === 'PushEvent' && moment.utc(e.created_at).isoWeek() == moment.utc(new Date()).isoWeek();
+      e.type === 'PushEvent' &&
+      moment.utc(e.created_at).isoWeek() == moment.utc(new Date()).isoWeek()
     )
   });
 

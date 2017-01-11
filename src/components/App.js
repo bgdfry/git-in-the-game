@@ -11,8 +11,8 @@ fetchUserCommits(page = 0, user) {
   fetch(`https://api.github.com/users/${user}/events?page=${page}&callback`)
     .then(res => res.json())
     .then(response => this.props.getEvents(response))
-    .then(page < 10 ? this.grabUserInfo(page + 1, user) : null)
-    .then(() => this.props.getWeeklyCommitArrays(this.props.events))
+    .then(page < 10 ? this.fetchUserCommits(page + 1, user) : null)
+    .then(()=>this.props.getWeeklyCommitArrays(this.props.events))
     .catch(() => alert('Please try again.'));
 }
 
@@ -24,6 +24,7 @@ componentWillMount(){
   };
   return;
 }
+
 
 render(){
   return(

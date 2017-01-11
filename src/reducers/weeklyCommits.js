@@ -1,4 +1,4 @@
-const weeklyCommits = (state = [], action) => {
+const currentWeekCommits = (state = [], action) => {
   const { type, data } = action;
   switch (type) {
     case 'PARSE_COMMITS':
@@ -8,4 +8,4 @@ const weeklyCommits = (state = [], action) => {
   }
 };
 
-export default weeklyCommits;
+export default currentWeekCommits;

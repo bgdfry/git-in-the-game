@@ -93,6 +93,3 @@ class Home extends React.Component {
 };
 
 export default userEvents(userSettings(Home));
-
-
-//  { this.state.commitsVsLastWeek >= 0 ? <h2>You did it! {this.state.commitsVsLastWeek} commits!</h2> : <h2>Only {this.state.commitsVsLastWeek} more commits to go</h2> }
