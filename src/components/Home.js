@@ -55,9 +55,11 @@ class Home extends React.Component {
   }
 
   render(){
-    const currentWeekCommits = [10,14,3,4,1,2,5];
-    const previousWeekCommits = [14,21,2,3,5,2,1];
-    const previousWeekPrs = [0,0,2,3,1,0,0];
+    let currentWeekCommits;
+      this.props.weeklyCommits.thisWeeksCommits ?  currentWeekCommits = this.props.weeklyCommits.thisWeeksCommits : currentWeekCommits = [10,14,3,4,1,2,5];
+    let previousWeekCommits;
+      this.props.weeklyCommits.lastWeeksCommits ?  previousWeekCommits = this.props.weeklyCommits.lastWeeksCommits : previousWeekCommits = [14,21,2,3,5,2,1];
+    let previousWeekPrs = [0,0,2,3,1,0,0];
     return(
       <section className='main-container'>
         <section className='main'>
