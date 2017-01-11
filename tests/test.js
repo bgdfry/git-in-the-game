@@ -48,4 +48,13 @@ describe('App starts and has correct initial appearance', function () {
     })
   })
 
+  it('gets the window bounds', function () {
+   return app.browserWindow.getBounds().should.eventually.deep.equal({
+     x: 1080,
+     y: 23,
+     width: 600,
+     height: 300
+   })
+ })
+
 });

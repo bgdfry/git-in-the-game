@@ -25,6 +25,7 @@ class Settings extends React.Component {
             <section aria-labelledby='input-label'>
               <h2 className='input-label'>Please enter your Github username to Proceed:</h2>
               <input
+                className='username-input'
                 placeholder='Github username'
                 ref={ node => {input = node} }
                 onKeyUp={(e)=> this.setState({fieldValue: e.target.value})
