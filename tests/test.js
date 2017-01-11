@@ -27,6 +27,15 @@ describe('App starts and has correct initial appearance', function () {
     return app.stop();
   });
 
+  it('gets the window bounds', function () {
+    return app.browserWindow.getBounds().should.eventually.deep.equal({
+      x: 1051,
+      y: 23,
+      width: 600,
+      height: 300
+    })
+  })
+
   it('opens a window', function () {
       return app.client.waitUntilWindowLoaded()
         .getWindowCount().should.eventually.equal(2);
@@ -48,13 +57,13 @@ describe('App starts and has correct initial appearance', function () {
     })
   })
 
-  it('gets the window bounds', function () {
-   return app.browserWindow.getBounds().should.eventually.deep.equal({
-     x: 1080,
-     y: 23,
-     width: 600,
-     height: 300
+  it('resolves if the element contains the given text', function () {
+     return app.client.setValue('.username-input', 'bcgodfrey91').should.be.fulfilled
    })
- })
+
+   it('transition pages if Username Input is filled & submit is clicked', function () {
+      return app.client.setValue('.username-input', 'bcgodfrey91').should.be.fulfilled
+    })
+
 
 });
