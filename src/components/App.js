@@ -7,11 +7,11 @@ class App extends React.Component {
     super();
 }
 
-fetchUserCommits(page = 0, user) {
-  fetch(`https://api.github.com/users/${user}/events?page=${page}&callback`)
+fetchUserCommits(page) {
+  fetch(`https://api.github.com/users/kylem038/events?page=${page}&callback`)
     .then(res => res.json())
     .then(response => this.props.getEvents(response))
-    .then(page < 10 ? this.grabUserInfo(page + 1, user) : null)
+    .then(page < 10 ? this.fetchUserCommits(page + 1) : null)
     .then(() => this.props.getWeeklyCommitArrays(this.props.events))
     .catch(() => alert('Please try again.'));
 }
@@ -20,8 +20,8 @@ componentWillMount(){
   let user = JSON.parse(localStorage.getItem('username'));
   if (user){
     this.props.submitUserName(user);
-    this.fetchUserCommits(0, user);
-  };
+    this.fetchUserCommits(0);
+  }
   return;
 }
 

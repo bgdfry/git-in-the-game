@@ -21,19 +21,19 @@ export const getEvents = (data) => {
 };
 
 export const getWeeklyCommitArrays = (arr) => {
-
   let commitsByDay = [0,0,0,0,0,0,0];
 
   //get this week's push events:
   let thisWeekPushEvents = arr.filter(e => {
-    return (
-      e.type === 'PushEvent' && moment.utc(e.created_at).isoWeek() == moment.utc(new Date()).isoWeek();
-    )
+    console.log()
+    return (e.type === 'PushEvent' && moment.utc(e.created_at).isoWeek() == moment.utc(new Date()).isoWeek());
   });
 
+  console.log(thisWeekPushEvents);
+
   thisWeekPushEvents.map(e => {
-     return e.payload.commits ?
-       commitsByDay[moment(e.created_at).isoWeekday() - 1] += e.payload.commits.length : null
+     e.payload.commits ?
+       commitsByDay[moment(e.created_at).isoWeekday() - 1] += e.payload.commits.length : null;
    });
 
    return {
