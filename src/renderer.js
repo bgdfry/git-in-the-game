@@ -12,11 +12,6 @@ import Repos from './components/Repos';
 import Repo from './components/Repo';
 
 const store = createStore(rootReducer);
-const { ipcRenderer } = require('electron');
-
-ipcRenderer.on('retrievedGithubData', () => {
-  console.log('hey');
-});
 
 let user = JSON.parse(localStorage.getItem('username'));
 
