@@ -83,7 +83,7 @@ class Home extends React.Component {
               classForPercentage={(pct) => pct < 100 ? 'incomplete' : 'complete'}/>
           </section>
           <section className='follower-count'>
-            <button onClick={() => this.props.submitUserName('')}>Log out</button>
+            <button className='logout' onClick={() => this.props.submitUserName('')}>Log out</button>
             <h3>14</h3>
             <h4>Followers</h4>
           </section>
