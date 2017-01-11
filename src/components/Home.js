@@ -8,14 +8,6 @@ import helpers from './helpers';
 
 
 class Home extends React.Component {
-  constructor() {
-    super();
-  }
-
-  goToRepos() {
-    this.context.router.push('/repos');
-  }
-
   grabUserInfo() {
     const user = this.props.username;
     fetch(`https://api.github.com/users/${user}/events?page=0&callback`, {
@@ -48,6 +40,10 @@ class Home extends React.Component {
     }
   }
 
+  componentDidMount(){
+    this.getWeeklyCommitArrays(this.grabUserInfo());
+  }
+
   componentWillReceiveProps(nextProps){
     if (nextProps.username===''){
       this.props.router.push('/login');
@@ -61,7 +57,7 @@ class Home extends React.Component {
     return(
       <section className='main-container'>
         <section className='main'>
-        { this.props.username ? <h2>Hello {this.props.username}!</h2> : <h2>Please enter your github name on the previous screen</h2> }
+        { this.props.username ? <h2>Hello {this.props.username}!</h2> : <h2>Please enter a valid github username</h2> }
           <section className='current-mod-stats'>
             <section className='stat'>
               <h3>Last Week Commits:</h3>
