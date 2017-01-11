@@ -82,8 +82,6 @@ class Home extends React.Component {
           </section>
           <section className='follower-count'>
             <button onClick={() => this.props.submitUserName('')}>Log out</button>
-            <h3>14</h3>
-            <h4>Followers</h4>
           </section>
         </section>
         <Navigation forward={true} route={'/dashboard'}/>

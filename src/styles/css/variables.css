@@ -22,7 +22,26 @@ input {
   background: #D8D8D8;
   border-radius: 5px;
   border: none;
-  padding: 0px 3px; }
+  padding: 5px 3px;
+  margin: 10px; }
+
+button {
+  border-radius: 5px;
+  border: 2px solid #707070;
+  padding: 3px 9px;
+  font-family: "Roboto", sans-serif; }
+
+button:hover {
+  background-color: #3d3d3d;
+  color: #D8D8D8; }
+
+button:disabled {
+  border: 2px solid #a3a3a3;
+  background: #D8D8D8;
+  color: #a3a3a3; }
+  button:disabled :hover {
+    background: #D8D8D8;
+    color: #a3a3a3; }
 
 a {
   text-decoration: none; }

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,cAAe;EACb,KAAK,EAAE,KAAK",
+"sources": ["../scss/settings.scss"],
+"names": [],
+"file": "settings.css"
+}

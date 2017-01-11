@@ -17,7 +17,7 @@ class Settings extends React.Component {
     return (
       <section className="main-container">
         <section className='main'>
-          <form className='mod-form'
+          <form className='settings-form'
                 onSubmit={ (e) => {
                 e.preventDefault()
                 this.props.submitUserName(input.value)

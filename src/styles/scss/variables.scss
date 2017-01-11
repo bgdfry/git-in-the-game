@@ -4,15 +4,12 @@ $color-main: #707070;
 $color-main-light: lighten($color-main, 20);
 $color-main-dark: darken($color-main, 20);
 $color-light: #D8D8D8;
-
-
 $color-winning: rgba(52, 255, 1, 1);
 $color-losing: #D0011B;
 
 // FONT
 
 $font-main: 'Roboto', sans-serif;
-
 
 // SCREEN
 
@@ -61,7 +58,30 @@ input {
   background: $color-light;
   border-radius: 5px;
   border: none;
-  padding: 0px 3px;
+  padding: 5px 3px;
+  margin: 10px;
+}
+
+button {
+  border-radius: 5px;
+  border: 2px solid $color-main;
+  padding: 3px 9px;
+  font-family: $font-main;
+}
+
+button:hover {
+  background-color: $color-main-dark;
+  color: $color-light;
+}
+
+button:disabled {
+  border: 2px solid $color-main-light;
+  background: $color-light;
+  color: $color-main-light;
+  :hover {
+    background: $color-light;
+    color: $color-main-light;
+  }
 }
 
 a {
