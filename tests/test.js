@@ -77,6 +77,6 @@ describe('App starts and has correct initial appearance', function () {
   });
 
   it('transition pages if Username Input is filled & submit is clicked', function () {
-     return app.client.setValue('.username-input', 'bcgodfrey91').click('.submit-button').getText('section').should.eventually.equal([ Array(7) ])
+     return app.client.setValue('.username-input', 'bcgodfrey91').click('.submit-button').getText('h2').should.eventually.equal('Hello bcgodfrey91!')
    })
 });
