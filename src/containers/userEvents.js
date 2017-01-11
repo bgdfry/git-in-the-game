@@ -2,10 +2,10 @@ import { connect } from 'react-redux';
 import { getEvents, getWeeklyCommitArrays } from '../actions/index';
 
 const mapStateToProps = (state) => {
- const { events, currentWeekCommits } = state
+ const { events, weeklyCommits } = state
  return {
    events,
-   currentWeekCommits
+   weeklyCommits
  };
 };
 
