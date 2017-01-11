@@ -59,42 +59,40 @@ class Home extends React.Component {
     const previousWeekCommits = [14,21,2,3,5,2,1];
     const previousWeekPrs = [0,0,2,3,1,0,0];
     return(
-      <div className='main-container'>
+      <section className='main-container'>
         <section className='main'>
         { this.props.username ? <h2>Hello {this.props.username}!</h2> : <h2>Please enter your github name on the previous screen</h2> }
           <section className='current-mod-stats'>
-            <div className='stat'>
+            <section className='stat'>
               <h3>Last Week Commits:</h3>
               <h1>{this.sumArray(currentWeekCommits)}</h1>
-            </div>
-            <div className='stat'>
+            </section>
+            <section className='stat'>
               <h3>Last Week PR's:</h3>
               <h1>{this.sumArray(previousWeekPrs)}</h1>
-            </div>
+            </section>
           </section>
-          <div className='stat'>
+          <section className='stat'>
             <h3>Commits VS Last Week:</h3>
             <CircularProgressbar
               percentage={this.commitPercentage(currentWeekCommits, previousWeekCommits)}
               strokeWidth={20}
               initialAnimation={true}
               classForPercentage={(pct) => pct < 100 ? 'incomplete' : 'complete'}/>
-          </div>
-          <div className='follower-count'>
+          </section>
+          <section className='follower-count'>
             <button onClick={() => this.props.submitUserName('')}>Log out</button>
             <h3>14</h3>
             <h4>Followers</h4>
-          </div>
+          </section>
         </section>
         <Navigation forward={true} route={'/dashboard'}/>
-      </div>
+      </section>
     );
   }
 };
 
-export default userEvents(
-                  userSettings(Home)
-              );
+export default userEvents(userSettings(Home));
 
 
-        //  { this.state.commitsVsLastWeek >= 0 ? <h2>You did it! {this.state.commitsVsLastWeek} commits!</h2> : <h2>Only {this.state.commitsVsLastWeek} more commits to go</h2> }
+//  { this.state.commitsVsLastWeek >= 0 ? <h2>You did it! {this.state.commitsVsLastWeek} commits!</h2> : <h2>Only {this.state.commitsVsLastWeek} more commits to go</h2> }
