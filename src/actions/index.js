@@ -22,7 +22,8 @@ export const getEvents = (data) => {
 
 export const getWeeklyCommitArrays = (arr) => {
 
-  let commitsByDay = [0,0,0,0,0,0,0];
+  let thisWeeksCommits = [0,0,0,0,0,0,0];
+  let lastWeeksCommits = [0,0,0,0,0,0,0];
 
   let thisWeekPushEvents = arr.filter(e => {
     return (
@@ -33,11 +34,23 @@ export const getWeeklyCommitArrays = (arr) => {
 
   thisWeekPushEvents.map(e => {
      return e.payload.commits ?
-       commitsByDay[moment(e.created_at).isoWeekday() - 1] += e.payload.commits.length : null
+       thisWeeksCommits[moment(e.created_at).isoWeekday() - 1] += e.payload.commits.length : null
    });
+
+   let lastWeekPushEvents = arr.filter(e => {
+     return (
+       e.type === 'PushEvent' &&
+       moment.utc(e.created_at).isoWeek() == moment.utc(new Date()).isoWeek() - 1
+     )
+   });
+
+   lastWeekPushEvents.map(e => {
+      return e.payload.commits ?
+        lastWeeksCommits[moment(e.created_at).isoWeekday() - 1] += e.payload.commits.length : null
+    });
 
    return {
      type: 'PARSE_COMMITS',
-     data: commitsByDay
+     data: { thisWeeksCommits, lastWeeksCommits }
    };
 };
