@@ -1,24 +1,5 @@
 import { connect } from 'react-redux';
-import { getEvents } from '../actions/index';
-
-const getPullRequestByType = (events, prType) => {
-  const pullReq = events.filter((ghEvent) => ghEvent.type==='PullRequestEvent');
-  const listOfPullRequests = pullReq.filter((obj) => obj.payload.action===`${prType}`);
-  return listOfPullRequests
-}
-
-const getIssueByType = (events, issueType) => {
-  const issues = events.filter((ghEvent) => ghEvent.type==='IssuesEvent');
-  const listOfIssues = issues.filter((obj) => obj.payload.action===`${issueType}`);
-  return listOfIssues
-}
-
-const getAllCommits = (events) => {
-  const pushEvents = events.filter((ghEvent) => ghEvent.type==='PushEvent')
-  const allCommits = pushEvents.map((obj) => obj.payload.commits.length);
-  return allCommits
-}
-
+import * from '../actions/index';
 
 const mapStateToProps = (state) => {
  const { events } = state
