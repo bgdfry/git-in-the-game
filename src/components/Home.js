@@ -34,7 +34,6 @@ grabUserInfo(page = 0, user = this.props.username) {
     .then(response => this.props.getEvents(response))
     .then(page < 10 ? this.grabUserInfo(page + 1, user) : null)
     .then(() => this.getPushEvent())
-    .then(() => this.getCommits())
     .catch(() => alert('Please try again.'));
 }
 
@@ -72,19 +71,6 @@ getCommits() {
   const reducedCommits = commitLengths.reduce((a, b) => a + b, 0);
   console.log(reducedCommits);
 }
-
-// sortCommitsByDay(pushEvents) {
-//   let arr = [0,0,0,0,0,0,0];
-//   pushEvents.map(e => {
-//     if(e.payload.commits){
-//         arr[moment(e.created_at).isoWeekday() - 1] += e.payload.commits.length;
-//         return arr;
-//     } else {
-//       return
-//     }
-//   });
-//   return arr
-// }
 
 sortCommitsByDay(pushEvents) {
   let arr = [0,0,0,0,0,0,0];
