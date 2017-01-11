@@ -39,7 +39,13 @@ describe('App starts and has correct initial appearance', function () {
 
   it('displays text from the react components', function () {
   return app.client.waitUntilWindowLoaded()
-    .getText('h1').should.eventually.equal('Connected');
+    .getText('h2').should.eventually.equal('Please enter your Github username to Proceed:');
   });
+
+  it('tests the Submit button is disabled', function () {
+    return app.client.getText('.submit-button').then(function (buttonText) {
+      assert(buttonText === 'Submit')
+    })
+  })
 
 });

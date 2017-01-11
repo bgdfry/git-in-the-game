@@ -29,7 +29,7 @@ class Settings extends React.Component {
                 ref={ node => {input = node} }
                 onKeyUp={(e)=> this.setState({fieldValue: e.target.value})
               }/>
-              <button children='Submit' disabled={!this.state.fieldValue} />
+              <button className='submit-button' children='Submit' disabled={!this.state.fieldValue} />
             </section>
           </form>
           </section>
