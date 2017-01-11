@@ -11,11 +11,6 @@ import App from './components/App';
 import Dashboard from './components/Dashboard';
 
 const store = createStore(rootReducer);
-const { ipcRenderer } = require('electron');
-
-ipcRenderer.on('retrievedGithubData', () => {
-  console.log('hey');
-});
 
 let user = JSON.parse(localStorage.getItem('username'));
 
