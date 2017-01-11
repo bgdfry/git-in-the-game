@@ -1,6 +1,7 @@
 import React from 'react';
 import Navigation from './Navigation';
 import userSettings from '../containers/userSettings';
+import userEvents from '../containers/userEvents';
 import LineGraph from './LineGraph';
 
 
@@ -23,12 +24,14 @@ class Dashboard extends React.Component {
 
   displayGraph() {
     let data;
+    let currentWeekCommits;
+    this.props.weeklyCommits.thisWeeksCommits ?  currentWeekCommits = this.props.weeklyCommits.thisWeeksCommits : currentWeekCommits = [1,1,1,1,1,1,1];
+    let previousWeekCommits;
+    this.props.weeklyCommits.lastWeeksCommits ?  previousWeekCommits = this.props.weeklyCommits.lastWeeksCommits : previousWeekCommits = [2,2,2,2,2,2,2];
     let graphData = {
       labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-      currentWeekData: [12, 10, 25, 14, 1, 2, 0],
-      // currentWeekData: this.props.currentWeekCommits,
-      previousWeekData: [8, 12, 28, 11, 10, 6, 2],
-      // previousWeekData: this.props.previousWeekCommits,
+      currentWeekData: currentWeekCommits,
+      previousWeekData: previousWeekCommits,
       title: 'Commits This Week VS Last Week'
     };
     let graphData2 = {
@@ -92,4 +95,4 @@ class Dashboard extends React.Component {
   }
 };
 
-export default userSettings(Dashboard);
+export default userEvents(userSettings(Dashboard));

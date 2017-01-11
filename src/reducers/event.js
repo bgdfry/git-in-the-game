@@ -2,7 +2,7 @@ const events = (state = [], action) => {
   const { type, data } = action;
   switch (type) {
     case 'GET_EVENTS':
-      return data;
+      return [...state, ...data];
     default:
       return state;
   }
