@@ -29,7 +29,7 @@ describe('App starts and has correct initial appearance', function () {
 
   it('gets the window bounds', function () {
     return app.browserWindow.getBounds().should.eventually.deep.equal({
-      x: 1051,
+      x: 1080,
       y: 23,
       width: 600,
       height: 300
@@ -60,10 +60,23 @@ describe('App starts and has correct initial appearance', function () {
   it('resolves if the element contains the given text', function () {
      return app.client.setValue('.username-input', 'bcgodfrey91').should.be.fulfilled
    })
-
-   it('transition pages if Username Input is filled & submit is clicked', function () {
-      return app.client.setValue('.username-input', 'bcgodfrey91').should.be.fulfilled
-    })
+});
 
 
+describe('App starts and has correct initial appearance', function () {
+
+  let app = null;
+
+  before(function () {
+      app = new Application({ path: electronPath, args: [appPath], startTimeout: 6000, waitTimeout: 6000 });
+      return app.start();
+  });
+
+  after(function () {
+    return app.client.click('.logout');
+  });
+
+  it('transition pages if Username Input is filled & submit is clicked', function () {
+     return app.client.setValue('.username-input', 'bcgodfrey91').click('.submit-button').getText('section').should.eventually.equal([ Array(7) ])
+   })
 });
